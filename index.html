@@ -271,6 +271,7 @@
     .gallery .wide .photo-box { height: 230px; }
     .gallery.edu-gallery { grid-template-columns: 1.35fr 1fr; }
     .gallery.three { grid-template-columns: repeat(3, 1fr); }
+    .gallery.three .wide { grid-column: span 3; }
     .gallery.edu-gallery .photo-box { height: 280px; }
     .gallery figcaption {
       font-size: .82rem;
@@ -684,6 +685,13 @@
             </div>
             <p class="journey-desc">I currently work in QA at Tasco Pharma, where diligence and strict adherence to procedures help deliver safe, effective medicines – the very path I set out on back in university.</p>
             <div class="gallery three">
+              <figure class="wide">
+                <div class="photo-box">
+                  <img class="zoomable" src="images/work-desk-selfie.jpg" loading="lazy" width="1400" height="788"
+                       alt="A desk selfie with a colleague at the office">
+                </div>
+                <figcaption>Desk selfie with a colleague 👍</figcaption>
+              </figure>
               <figure>
                 <div class="photo-box">
                   <img class="zoomable" src="images/work-elevator.jpg" loading="lazy" width="1050" height="1400"
@@ -731,16 +739,18 @@
           </div>
 
           <div class="card hobby reveal">
-            <div class="hobby-photos n2">
+            <div class="hobby-photos n3">
               <div class="photo-box"><img class="zoomable" src="images/travel-waterfall.jpg" loading="lazy" width="1050" height="1400"
                    alt="By a waterfall"></div>
               <div class="photo-box"><img class="zoomable" src="images/travel-forest.jpg" loading="lazy" width="1050" height="1400"
                    alt="Trekking in the forest"></div>
+              <div class="photo-box"><img class="zoomable" src="images/travel-titanic.jpg" loading="lazy" width="1050" height="1400"
+                   alt="Recreating the Titanic pose with a friend in Tam Đảo" style="object-position: center 60%"></div>
             </div>
             <div class="hobby-body">
               <span class="emoji" aria-hidden="true">🎒</span>
               <h3>Travel</h3>
-              <p>Trekking through forests, chasing waterfalls and discovering new trails.</p>
+              <p>Trekking through forests, chasing waterfalls and recreating movie scenes along the way.</p>
             </div>
           </div>
 
@@ -808,6 +818,11 @@
       <div class="container">
         <h2 class="section-title reveal">Family &amp; Friends</h2>
         <div class="family reveal">
+          <figure class="wide">
+            <div class="photo-box"><img class="zoomable" src="images/grad-family-all.jpg" loading="lazy" width="933" height="1400"
+                 alt="With my whole family at my graduation ceremony, 28 August 2026" style="object-position: center 72%"></div>
+            <figcaption>The whole family came to cheer me on 🎓</figcaption>
+          </figure>
           <figure>
             <div class="photo-box"><img class="zoomable" src="images/grad-family.jpg" loading="lazy" width="933" height="1400"
                  alt="With my family at my graduation ceremony, 28 August 2026" style="object-position: center 70%"></div>
@@ -832,6 +847,11 @@
             <div class="photo-box"><img class="zoomable" src="images/grad-friends-selfie.jpg" loading="lazy" width="1400" height="933"
                  alt="A graduation-day selfie with friends" style="object-position: center 60%"></div>
             <figcaption>A graduation-day selfie with friends</figcaption>
+          </figure>
+          <figure class="wide">
+            <div class="photo-box"><img class="zoomable" src="images/grad-friends-carry.jpg" loading="lazy" width="1400" height="933"
+                 alt="A friend carrying me on graduation day" style="object-position: center 35%"></div>
+            <figcaption>Graduated – and literally swept off my feet 😆</figcaption>
           </figure>
           <figure>
             <div class="photo-box"><img class="zoomable" src="images/friends-mountain.jpg" loading="lazy" width="1050" height="1400"
