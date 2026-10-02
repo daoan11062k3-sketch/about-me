@@ -1035,7 +1035,39 @@
       revealEls.forEach(el => el.classList.add("visible"));
     }
   </script>
-  <script data-goatcounter="https://baoan.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+  <!-- GoatCounter: count each device once (reloads and return visits are not counted again) -->
+  <script data-goatcounter="https://baoan.goatcounter.com/count" data-goatcounter-settings='{"no_onload": true}'
+          async src="https://gc.zgo.at/count.js"></script>
+  <script>
+    (function () {
+      const KEY = "baoan-visited";
+      try { if (localStorage.getItem(KEY) === "1") return; } catch (e) { return; }
+
+      function countOnce() {
+        const gc = window.goatcounter;
+        // Skip previews, local files and browsers that opted out, without marking the device
+        if (gc.filter()) return;
+        gc.count();
+        try { localStorage.setItem(KEY, "1"); } catch (e) {}
+      }
+
+      function whenVisible() {
+        if (document.visibilityState === "visible") return countOnce();
+        document.addEventListener("visibilitychange", function f() {
+          if (document.visibilityState !== "visible") return;
+          document.removeEventListener("visibilitychange", f);
+          countOnce();
+        });
+      }
+
+      // count.js loads async; wait for it (give up after ~10 s if it is blocked)
+      let tries = 0;
+      const t = setInterval(function () {
+        if (window.goatcounter && window.goatcounter.count) { clearInterval(t); whenVisible(); }
+        else if (++tries > 100) clearInterval(t);
+      }, 100);
+    })();
+  </script>
   <script>
     (function () {
       const btn = document.getElementById("heartBtn");
