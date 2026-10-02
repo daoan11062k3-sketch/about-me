@@ -481,6 +481,27 @@
       .lightbox { padding-bottom: 80px; }
       .lightbox img { max-height: calc(100vh - 190px); max-height: calc(100dvh - 190px); }
     }
+
+    /* ---------- Support heart ---------- */
+    .heart-btn {
+      position: fixed; right: 18px; bottom: 18px; z-index: 30;
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 18px 10px 14px; border-radius: 999px;
+      border: 2px solid #e0526b; background: #fff; color: #c2334d;
+      font: 600 1rem/1 "Segoe UI", Roboto, Arial, sans-serif;
+      box-shadow: 0 8px 24px rgba(194, 51, 77, .25); cursor: pointer;
+      transition: transform .2s, background .2s, color .2s;
+    }
+    .heart-btn:hover { transform: translateY(-2px); }
+    .heart-btn:focus-visible { outline: 3px solid var(--accent-dark); outline-offset: 3px; }
+    .heart-btn svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2; transition: fill .2s; }
+    .heart-btn.liked { background: #e0526b; color: #fff; cursor: default; }
+    .heart-btn.liked svg { fill: currentColor; }
+    .heart-btn.pop svg { animation: heartpop .5s ease; }
+    @keyframes heartpop { 0% { transform: scale(1); } 40% { transform: scale(1.45); } 100% { transform: scale(1); } }
+    .heart-label { font-weight: 500; font-size: .9rem; }
+    @media (max-width: 600px) { .heart-btn { right: 12px; bottom: 12px; padding: 9px 14px 9px 12px; } .heart-label { display: none; } }
+    @media (prefers-reduced-motion: reduce) { .heart-btn, .heart-btn.pop svg { transition: none; animation: none; } }
   </style>
 </head>
 <body>
@@ -751,6 +772,11 @@
     </section>
   </main>
 
+  <button class="heart-btn" id="heartBtn" type="button" aria-label="Send Bao An some love">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-10-9.3C.4 8.4 2.3 4.5 6 4.5c2.2 0 3.5 1.2 4.3 2.4h3.4c.8-1.2 2.1-2.4 4.3-2.4 3.7 0 5.6 3.9 4 7.2C19.5 16.4 12 21 12 21z" transform="translate(0 -1)"/></svg>
+    <span id="heartCount">0</span><span class="heart-label" id="heartLabel">Support me</span>
+  </button>
+
   <footer>
     <p>© <span id="year">2026</span> Đào Ngọc Bảo Ân · <span>Made with love 🧡</span></p>
   </footer>
@@ -860,5 +886,40 @@
     }
   </script>
   <script data-goatcounter="https://baoan.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+  <script>
+    (function () {
+      const btn = document.getElementById("heartBtn");
+      const countEl = document.getElementById("heartCount");
+      const labelEl = document.getElementById("heartLabel");
+      const KEY = "baoan-heart-liked";
+      let count = 0, liked = false;
+      try { liked = localStorage.getItem(KEY) === "1"; } catch (e) {}
+
+      function render() {
+        countEl.textContent = count;
+        btn.classList.toggle("liked", liked);
+        labelEl.textContent = liked ? "Thank you!" : "Support me";
+        btn.setAttribute("aria-label", liked ? count + " people support Bao An. Thank you!" : "Send Bao An some love (" + count + " so far)");
+      }
+
+      fetch("https://baoan.goatcounter.com/counter/heart.json")
+        .then(r => r.ok ? r.json() : { count: "0" })
+        .then(d => { count = parseInt(String(d.count).replace(/\D/g, ""), 10) || 0; if (liked && count === 0) count = 1; render(); })
+        .catch(render);
+
+      btn.addEventListener("click", function () {
+        if (liked) return;
+        liked = true; count += 1;
+        try { localStorage.setItem(KEY, "1"); } catch (e) {}
+        btn.classList.add("pop");
+        setTimeout(() => btn.classList.remove("pop"), 500);
+        render();
+        function send() { window.goatcounter.count({ path: "heart", title: "Heart / support", event: true }); }
+        if (window.goatcounter && window.goatcounter.count) send();
+        else window.addEventListener("load", () => window.goatcounter && window.goatcounter.count && send());
+      });
+      render();
+    })();
+  </script>
 </body>
 </html>
