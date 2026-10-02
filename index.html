@@ -1041,21 +1041,54 @@
       const btn = document.getElementById("heartBtn");
       const countEl = document.getElementById("heartCount");
       const labelEl = document.getElementById("heartLabel");
-      const KEY = "baoan-heart-liked";
-      let count = 0, liked = false;
+      // Shared, real-time heart counter (Abacus: free counting API with CORS).
+      // GoatCounter's counter API is cached for up to 4 hours, so it can't show new hearts live.
+      const COUNTER = "https://abacus.jasoncameron.dev";
+      const COUNTER_PATH = "/baoan-about-me/hearts";
+      const KEY = "baoan-heart-liked-v2";
+      let count = 0, shown = 0, liked = false, anim = null;
       try { liked = localStorage.getItem(KEY) === "1"; } catch (e) {}
 
       function render() {
-        countEl.textContent = count;
         btn.classList.toggle("liked", liked);
         labelEl.textContent = liked ? "Thank you!" : "Support me";
         btn.setAttribute("aria-label", liked ? count + " people support Bao An. Thank you!" : "Send Bao An some love (" + count + " so far)");
+        animateCount();
       }
 
-      fetch("https://baoan.goatcounter.com/counter/heart.json")
-        .then(r => r.ok ? r.json() : { count: "0" })
-        .then(d => { count = parseInt(String(d.count).replace(/\D/g, ""), 10) || 0; if (liked && count === 0) count = 1; render(); })
-        .catch(render);
+      // Count the number up smoothly from what is shown to the latest value
+      function animateCount() {
+        cancelAnimationFrame(anim);
+        const from = shown, to = count;
+        if (from === to || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+          shown = to; countEl.textContent = to; return;
+        }
+        const dur = Math.min(1200, 300 + Math.abs(to - from) * 40), t0 = performance.now();
+        (function step(now) {
+          const k = Math.min(1, (now - t0) / dur), ease = 1 - Math.pow(1 - k, 3);
+          shown = Math.round(from + (to - from) * ease);
+          countEl.textContent = shown;
+          if (k < 1) anim = requestAnimationFrame(step);
+        })(t0);
+      }
+
+      function setCount(v) {
+        v = parseInt(v, 10);
+        if (isNaN(v)) return;
+        // Someone who already gave a heart is at least one of the supporters
+        count = Math.max(v, liked ? 1 : 0);
+        render();
+      }
+
+      function refresh() {
+        fetch(COUNTER + "/get" + COUNTER_PATH)
+          .then(r => r.status === 404 ? { value: 0 } : (r.ok ? r.json() : null))
+          .then(d => { if (d) setCount(d.value); })
+          .catch(() => {});
+      }
+      refresh();
+      // Pick up hearts from other visitors while the page stays open
+      setInterval(() => { if (document.visibilityState === "visible") refresh(); }, 60000);
 
       // ---------- Surprise: emoji burst + a funny prescription ----------
       const overlay = document.getElementById("rxOverlay");
@@ -1159,6 +1192,11 @@
         btn.classList.add("pop");
         setTimeout(() => btn.classList.remove("pop"), 500);
         render();
+        // Add the heart to the shared counter and show the real total it returns
+        fetch(COUNTER + "/hit" + COUNTER_PATH)
+          .then(r => r.ok ? r.json() : null)
+          .then(d => { if (d) setCount(Math.max(d.value, count)); })
+          .catch(() => {});
         function send() { window.goatcounter.count({ path: "heart", title: "Heart / support", event: true }); }
         if (window.goatcounter && window.goatcounter.count) send();
         else window.addEventListener("load", () => window.goatcounter && window.goatcounter.count && send());
