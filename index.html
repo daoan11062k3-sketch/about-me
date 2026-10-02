@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Đào Ngọc Bảo Ân – Giới thiệu</title>
-  <meta name="description" content="Trang giới thiệu cá nhân của Đào Ngọc Bảo Ân – dược sĩ trẻ định hướng Đảm bảo chất lượng (QA) ngành dược.">
+  <meta name="description" content="Trang giới thiệu cá nhân của Đào Ngọc Bảo Ân – dược sĩ trẻ, hiện làm Đảm bảo chất lượng (QA) tại Tasco Pharma.">
   <style>
     :root {
       --bg: #fbf6ef;
@@ -20,6 +20,7 @@
       --border: #eadfd2;
       --shadow: 0 10px 30px rgba(120, 80, 50, 0.08);
       --radius: 20px;
+      --radius-img: 14px;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -33,12 +34,13 @@
       line-height: 1.7;
       -webkit-font-smoothing: antialiased;
     }
+    body.no-scroll { overflow: hidden; }
 
     a { color: inherit; }
 
     .container {
       width: 100%;
-      max-width: 920px;
+      max-width: 1080px;
       margin: 0 auto;
       padding: 0 20px;
     }
@@ -47,8 +49,8 @@
     .topbar {
       position: sticky;
       top: 0;
-      z-index: 10;
-      background: rgba(251, 246, 239, 0.85);
+      z-index: 20;
+      background: rgba(251, 246, 239, 0.88);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
       border-bottom: 1px solid transparent;
@@ -107,8 +109,9 @@
       color: #fff;
       box-shadow: 0 2px 8px rgba(201, 111, 74, .35);
     }
-    .lang-switch button:focus-visible {
-      outline: 2px solid var(--accent-dark);
+    .lang-switch button:focus-visible,
+    .zoomable:focus-visible {
+      outline: 3px solid var(--accent-dark);
       outline-offset: 2px;
     }
 
@@ -116,44 +119,31 @@
     .hero {
       position: relative;
       text-align: center;
-      padding: 90px 0 80px;
-      overflow: hidden;
-    }
-    .hero::before,
-    .hero::after {
-      content: "";
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(60px);
-      opacity: .55;
-      z-index: -1;
-    }
-    .hero::before {
-      width: 340px; height: 340px;
-      background: var(--accent-soft);
-      top: -60px; left: -80px;
-    }
-    .hero::after {
-      width: 300px; height: 300px;
-      background: var(--sage-soft);
-      bottom: -80px; right: -60px;
+      padding: 110px 0 100px;
+      color: #fff;
+      background:
+        linear-gradient(180deg, rgba(45, 28, 20, .55) 0%, rgba(45, 28, 20, .45) 50%, rgba(45, 28, 20, .7) 100%),
+        url("images/mountain-flowers.jpg") center 60% / cover no-repeat;
     }
     .avatar {
-      width: 120px;
-      height: 120px;
-      margin: 0 auto 28px;
+      width: 150px;
+      height: 150px;
+      margin: 0 auto 26px;
       border-radius: 50%;
-      display: grid;
-      place-items: center;
-      font-size: 2.6rem;
-      font-weight: 700;
-      color: #fff;
-      background: linear-gradient(135deg, var(--accent), #e0a07a);
-      box-shadow: 0 12px 30px rgba(201, 111, 74, .3);
-      border: 5px solid #fff;
+      overflow: hidden;
+      border: 5px solid rgba(255, 255, 255, .9);
+      box-shadow: 0 14px 34px rgba(0, 0, 0, .3);
+      background: var(--accent-soft);
+    }
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+      display: block;
     }
     .hello {
-      color: var(--accent);
+      color: #ffd9c4;
       font-weight: 600;
       letter-spacing: 2px;
       text-transform: uppercase;
@@ -162,15 +152,17 @@
     }
     .hero h1 {
       font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(2.2rem, 7vw, 3.4rem);
+      font-size: clamp(2.2rem, 7vw, 3.6rem);
       line-height: 1.2;
       margin-bottom: 16px;
+      text-shadow: 0 2px 16px rgba(0, 0, 0, .35);
     }
     .tagline {
-      max-width: 580px;
+      max-width: 620px;
       margin: 0 auto 30px;
-      color: var(--muted);
-      font-size: 1.1rem;
+      font-size: 1.12rem;
+      color: rgba(255, 255, 255, .92);
+      text-shadow: 0 1px 10px rgba(0, 0, 0, .35);
     }
     .badges {
       display: flex;
@@ -179,16 +171,23 @@
       gap: 10px;
     }
     .badge {
-      background: var(--card);
-      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, .16);
+      border: 1px solid rgba(255, 255, 255, .35);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
       border-radius: 999px;
       padding: 6px 16px;
       font-size: .9rem;
-      color: var(--muted);
+      color: #fff;
+    }
+    .badge.highlight {
+      background: var(--accent);
+      border-color: var(--accent);
+      font-weight: 600;
     }
 
     /* ---------- Sections ---------- */
-    section { padding: 50px 0; scroll-margin-top: 70px; }
+    section { padding: 56px 0; scroll-margin-top: 70px; }
     .section-title {
       display: flex;
       align-items: center;
@@ -210,40 +209,71 @@
       padding: 30px;
       box-shadow: var(--shadow);
     }
-    .about p { font-size: 1.05rem; }
-    .about p + p { margin-top: 14px; }
 
-    /* Education */
-    .edu-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
+    /* Shared image styles */
+    .zoomable {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: var(--radius-img);
+      background: var(--bg-soft);
+      cursor: zoom-in;
+      transition: transform .35s ease, filter .35s ease;
     }
-    .edu-item .icon {
+    .photo-box {
+      overflow: hidden;
+      border-radius: var(--radius-img);
+    }
+    .photo-box:hover .zoomable { transform: scale(1.04); filter: brightness(1.05); }
+
+    /* About */
+    .about {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr;
+      gap: 30px;
+      align-items: center;
+    }
+    .about-text p { font-size: 1.05rem; }
+    .about-text p + p { margin-top: 14px; }
+    .about-photo { height: 380px; }
+    .about-photo .zoomable { object-position: center 35%; }
+
+    /* Education & Work */
+    .journey-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+      align-items: start;
+    }
+    .journey-head {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      margin-bottom: 18px;
+    }
+    .journey-head .icon {
       width: 52px; height: 52px;
+      flex-shrink: 0;
       border-radius: 14px;
       display: grid;
       place-items: center;
       font-size: 1.6rem;
-      margin-bottom: 16px;
     }
-    .edu-item:nth-child(1) .icon { background: var(--accent-soft); }
-    .edu-item:nth-child(2) .icon { background: var(--sage-soft); }
-    .edu-item .label {
-      font-size: .8rem;
+    .edu .icon { background: var(--accent-soft); }
+    .work .icon { background: var(--sage-soft); }
+    .label {
+      font-size: .78rem;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 1.5px;
       color: var(--accent);
     }
-    .edu-item h3 {
-      font-size: 1.2rem;
-      margin: 4px 0 6px;
-    }
-    .edu-item .meta { color: var(--muted); }
-    .edu-item .period {
+    .journey-head h3 { font-size: 1.2rem; line-height: 1.35; margin: 2px 0 4px; }
+    .journey-head .meta { color: var(--muted); }
+    .period {
       display: inline-block;
-      margin-top: 12px;
+      margin-top: 8px;
       background: var(--bg-soft);
       border-radius: 8px;
       padding: 2px 10px;
@@ -251,29 +281,81 @@
       font-weight: 600;
       color: var(--accent-dark);
     }
+    .period.now { background: var(--sage-soft); color: #4f6b54; }
+    .journey-desc { color: var(--muted); margin-bottom: 18px; }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .gallery figure { margin: 0; }
+    .gallery .photo-box { height: 240px; }
+    .gallery .wide { grid-column: span 2; }
+    .gallery .wide .photo-box { height: 230px; }
+    .gallery.edu-gallery { grid-template-columns: 1.35fr 1fr; }
+    .gallery.edu-gallery .photo-box { height: 280px; }
+    .gallery figcaption {
+      font-size: .82rem;
+      color: var(--muted);
+      text-align: center;
+      margin-top: 6px;
+    }
 
     /* Hobbies */
     .hobbies {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 16px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
     }
     .hobby {
-      text-align: center;
-      padding: 26px 16px;
+      padding: 12px 12px 22px;
+      display: flex;
+      flex-direction: column;
       transition: transform .25s, box-shadow .25s;
     }
     .hobby:hover {
       transform: translateY(-6px);
       box-shadow: 0 16px 34px rgba(120, 80, 50, 0.13);
     }
-    .hobby .emoji {
-      font-size: 2.6rem;
-      display: block;
-      margin-bottom: 10px;
+    .hobby-photos {
+      display: grid;
+      gap: 6px;
+      height: 230px;
+      margin-bottom: 16px;
     }
-    .hobby h3 { font-size: 1.05rem; margin-bottom: 4px; }
-    .hobby p { font-size: .88rem; color: var(--muted); line-height: 1.5; }
+    .hobby-photos.n2 { grid-template-columns: 1fr 1fr; }
+    .hobby-photos.n3 { grid-template-columns: 1fr 1fr 1fr; }
+    .hobby-photos .photo-box { height: 100%; }
+    .hobby-body { padding: 0 8px; text-align: center; }
+    .hobby .emoji { font-size: 2rem; display: block; line-height: 1.2; margin-bottom: 4px; }
+    .hobby h3 { font-size: 1.1rem; margin-bottom: 4px; }
+    .hobby p { font-size: .9rem; color: var(--muted); line-height: 1.55; }
+    .pos-top { object-position: center top; }
+
+    /* Family & Friends */
+    .family {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+    }
+    .family figure {
+      margin: 0;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 10px 10px 12px;
+      box-shadow: var(--shadow);
+    }
+    .family .photo-box { height: 290px; }
+    .family .wide { grid-column: span 2; }
+    .family figcaption {
+      text-align: center;
+      font-size: .92rem;
+      font-weight: 600;
+      margin-top: 10px;
+      color: var(--text);
+    }
 
     /* Contact */
     .contact { text-align: center; }
@@ -317,6 +399,60 @@
       font-size: .9rem;
     }
 
+    /* ---------- Lightbox ---------- */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 16px 24px;
+      background: rgba(25, 16, 12, .9);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity .25s, visibility .25s;
+    }
+    .lightbox.open { opacity: 1; visibility: visible; }
+    .lightbox img {
+      max-width: min(100%, 1100px);
+      max-height: calc(100vh - 150px);
+      max-height: calc(100dvh - 150px);
+      object-fit: contain;
+      border-radius: 10px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, .5);
+      transform: scale(.96);
+      transition: transform .25s;
+    }
+    .lightbox.open img { transform: none; }
+    .lightbox-caption {
+      color: #f3e6dc;
+      margin-top: 14px;
+      text-align: center;
+      font-size: .95rem;
+      max-width: 700px;
+    }
+    .lb-btn {
+      position: absolute;
+      border: none;
+      background: rgba(255, 255, 255, .14);
+      color: #fff;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      font-size: 1.6rem;
+      line-height: 1;
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      transition: background .2s;
+    }
+    .lb-btn:hover, .lb-btn:focus-visible { background: var(--accent); outline: none; }
+    .lb-close { top: 14px; right: 14px; }
+    .lb-prev { left: 14px; top: 50%; transform: translateY(-50%); }
+    .lb-next { right: 14px; top: 50%; transform: translateY(-50%); }
+
     /* Fade-in animation */
     .reveal {
       opacity: 0;
@@ -331,22 +467,46 @@
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       .reveal { opacity: 1; transform: none; transition: none; }
-      .hobby, .btn { transition: none; }
+      .hobby, .btn, .zoomable, .lightbox, .lightbox img { transition: none; }
+    }
+
+    /* ---------- Tablet ---------- */
+    @media (max-width: 960px) {
+      .nav { gap: 16px; }
+      .journey-grid { grid-template-columns: 1fr; }
+      .hobbies { grid-template-columns: repeat(2, 1fr); }
+      .family { grid-template-columns: repeat(2, 1fr); }
+      .family .photo-box { height: 300px; }
+      .family .wide .photo-box { height: 280px; }
+      .family .m-wide { grid-column: span 2; }
     }
 
     /* ---------- Mobile ---------- */
     @media (max-width: 680px) {
       .nav { display: none; }
-      .hero { padding: 60px 0 56px; }
-      .avatar { width: 100px; height: 100px; font-size: 2.2rem; }
+      .hero { padding: 64px 0 60px; background-position: 70% center, 70% center; }
+      .avatar { width: 124px; height: 124px; }
       .tagline { font-size: 1rem; }
-      section { padding: 36px 0; }
-      .card { padding: 22px; }
-      .hobbies { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-      .hobby { padding: 20px 10px; }
-      .hobby:last-child:nth-child(odd) { grid-column: span 2; }
+      section { padding: 40px 0; }
+      .card { padding: 20px; }
+      .about { grid-template-columns: 1fr; gap: 20px; }
+      .about-photo { height: 300px; order: -1; }
+      .gallery .photo-box { height: 210px; }
+      .gallery .wide .photo-box { height: 200px; }
+      .gallery.edu-gallery .photo-box { height: 220px; }
+      .hobbies { grid-template-columns: 1fr; gap: 16px; }
+      .hobby-photos { height: 250px; }
+      .family { gap: 10px; }
+      .family figure { padding: 8px 8px 10px; }
+      .family .photo-box { height: 220px; }
+      .family .wide .photo-box,
+      .family .m-wide .photo-box { height: 230px; }
+      .family figcaption { font-size: .85rem; }
       .contact-links { flex-direction: column; align-items: stretch; }
       .btn { justify-content: center; }
+      .lb-prev, .lb-next { top: auto; bottom: 16px; transform: none; }
+      .lightbox { padding-bottom: 80px; }
+      .lightbox img { max-height: calc(100vh - 190px); max-height: calc(100dvh - 190px); }
     }
   </style>
 </head>
@@ -357,8 +517,9 @@
       <a href="#top" class="logo">Bảo Ân</a>
       <ul class="nav">
         <li><a href="#about" data-i18n="nav_about">Về mình</a></li>
-        <li><a href="#education" data-i18n="nav_edu">Học vấn</a></li>
+        <li><a href="#journey" data-i18n="nav_journey">Học vấn &amp; Công việc</a></li>
         <li><a href="#hobbies" data-i18n="nav_hobbies">Sở thích</a></li>
+        <li><a href="#family" data-i18n="nav_family">Gia đình &amp; Bạn bè</a></li>
         <li><a href="#contact" data-i18n="nav_contact">Liên hệ</a></li>
       </ul>
       <div class="lang-switch" role="group" aria-label="Language / Ngôn ngữ">
@@ -372,11 +533,15 @@
     <!-- Hero -->
     <div class="hero">
       <div class="container">
-        <div class="avatar" aria-hidden="true">BA</div>
+        <div class="avatar">
+          <img class="zoomable" src="images/avatar.jpg" loading="lazy" width="480" height="480"
+               alt="Ảnh đại diện của Bảo Ân" data-i18n-alt="alt_avatar">
+        </div>
         <p class="hello" data-i18n="hello">Xin chào, mình là</p>
         <h1>Đào Ngọc Bảo Ân</h1>
-        <p class="tagline" data-i18n="tagline">Dược sĩ trẻ yêu sự chính xác, đang hướng tới con đường Đảm bảo chất lượng (QA) trong ngành dược.</p>
+        <p class="tagline" data-i18n="tagline">Dược sĩ trẻ, hiện đang làm Đảm bảo chất lượng (QA) tại Tasco Pharma – yêu sự chính xác, mê leo núi, ra biển và đánh cờ.</p>
         <div class="badges">
+          <span class="badge highlight" data-i18n="badge_work">🏢 QA tại Tasco Pharma</span>
           <span class="badge" data-i18n="badge_job">💊 Dược sĩ</span>
           <span class="badge" data-i18n="badge_home">📍 Cầu Giấy, Hà Nội</span>
           <span class="badge" data-i18n="badge_from">🏡 Quê TP. Tuyên Quang</span>
@@ -389,30 +554,87 @@
       <div class="container">
         <h2 class="section-title reveal" data-i18n="about_title">Về mình</h2>
         <div class="card about reveal">
-          <p data-i18n="about_p1">Mình là Bảo Ân, một dược sĩ trẻ vừa tốt nghiệp. Mình yêu sự chính xác và tỉ mỉ – điều mà cả ngành dược lẫn bàn cờ vua đều đòi hỏi: mỗi quyết định nhỏ đều cần được cân nhắc cẩn thận.</p>
-          <p data-i18n="about_p2">Ngoài giờ học và làm việc, mình thích xách ba lô lên và đi khám phá, từ những bãi biển xanh đến những ngọn núi cao. Mình cũng là một người rất yêu mèo.</p>
-          <p data-i18n="about_p3">Mong muốn của mình là được góp một phần nhỏ vào việc mang đến những sản phẩm thuốc an toàn, chất lượng cho mọi người.</p>
+          <div class="about-text">
+            <p data-i18n="about_p1">Mình là Bảo Ân, một dược sĩ trẻ tốt nghiệp Trường Đại học Y Dược – Đại học Quốc gia Hà Nội, hiện đang làm Đảm bảo chất lượng (QA) tại Tasco Pharma. Mình yêu sự chính xác và tỉ mỉ – điều mà cả công việc QA lẫn bàn cờ vua đều đòi hỏi. Thỉnh thoảng mình vẫn đăng ký đánh giải, gần nhất là Giải cờ vua VCC mở rộng 2026.</p>
+            <p data-i18n="about_p2">Những lúc rảnh, mình hay xách ba lô đi leo núi ngắm hoa, lội rừng tìm thác hay ra biển hóng gió, và không bao giờ quên chụp lại những khoảnh khắc đẹp trên đường đi. Để có sức cho những chuyến đi ấy, mình duy trì thói quen tập gym đều đặn.</p>
+            <p data-i18n="about_p3">Mình là một “con sen” chính hiệu, mê mèo vô cùng, và luôn trân trọng thời gian bên gia đình, bạn bè. Mong muốn của mình là góp một phần nhỏ vào việc mang đến những sản phẩm thuốc an toàn, chất lượng cho mọi người.</p>
+          </div>
+          <div class="about-photo photo-box">
+            <img class="zoomable" src="images/travel-forest.jpg" loading="lazy" width="1050" height="1400"
+                 alt="Bảo Ân giữa rừng xanh" data-i18n-alt="alt_about">
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Education -->
-    <section id="education">
+    <!-- Education & Work -->
+    <section id="journey">
       <div class="container">
-        <h2 class="section-title reveal" data-i18n="edu_title">Học vấn &amp; Định hướng</h2>
-        <div class="edu-grid">
-          <div class="card edu-item reveal">
-            <div class="icon" aria-hidden="true">🎓</div>
-            <span class="label" data-i18n="edu_label">Học vấn</span>
-            <h3 data-i18n="edu_degree">Dược sĩ</h3>
-            <p class="meta" data-i18n="edu_school">Trường Đại học Y Dược – Đại học Quốc gia Hà Nội</p>
-            <span class="period">2021 – 2026</span>
+        <h2 class="section-title reveal" data-i18n="journey_title">Học vấn &amp; Công việc</h2>
+        <div class="journey-grid">
+          <div class="card edu reveal">
+            <div class="journey-head">
+              <div class="icon" aria-hidden="true">🎓</div>
+              <div>
+                <span class="label" data-i18n="edu_label">Học vấn</span>
+                <h3 data-i18n="edu_degree">Dược sĩ</h3>
+                <p class="meta" data-i18n="edu_school">Trường Đại học Y Dược – Đại học Quốc gia Hà Nội</p>
+                <span class="period">2021 – 2026</span>
+              </div>
+            </div>
+            <p class="journey-desc" data-i18n="edu_desc">Năm năm trong chiếc áo blouse trắng đã cho mình nền tảng kiến thức dược học vững vàng và thói quen làm việc cẩn thận, chính xác.</p>
+            <div class="gallery edu-gallery">
+              <figure>
+                <div class="photo-box">
+                  <img class="zoomable" src="images/graduation.jpg" style="object-position: 15% center" loading="lazy" width="1184" height="888"
+                       alt="Lễ tốt nghiệp" data-i18n-alt="cap_graduation">
+                </div>
+                <figcaption data-i18n="cap_graduation">Lễ tốt nghiệp</figcaption>
+              </figure>
+              <figure>
+                <div class="photo-box">
+                  <img class="zoomable" src="images/school-labcoat.jpg" loading="lazy" width="1050" height="1400"
+                       alt="Áo blouse trắng ở trường" data-i18n-alt="cap_labcoat">
+                </div>
+                <figcaption data-i18n="cap_labcoat">Áo blouse trắng ở trường</figcaption>
+              </figure>
+            </div>
           </div>
-          <div class="card edu-item reveal">
-            <div class="icon" aria-hidden="true">🔬</div>
-            <span class="label" data-i18n="goal_label">Định hướng</span>
-            <h3 data-i18n="goal_title">Đảm bảo chất lượng (QA)</h3>
-            <p class="meta" data-i18n="goal_desc">Mình mong muốn làm việc trong lĩnh vực Đảm bảo chất lượng ngành dược, nơi sự cẩn trọng và tuân thủ quy trình góp phần tạo nên những sản phẩm thuốc an toàn, hiệu quả.</p>
+
+          <div class="card work reveal">
+            <div class="journey-head">
+              <div class="icon" aria-hidden="true">🔬</div>
+              <div>
+                <span class="label" data-i18n="work_label">Công việc</span>
+                <h3 data-i18n="work_title">Đảm bảo chất lượng (QA)</h3>
+                <p class="meta">Tasco Pharma</p>
+                <span class="period now" data-i18n="work_period">Hiện tại</span>
+              </div>
+            </div>
+            <p class="journey-desc" data-i18n="work_desc">Hiện mình đang làm QA tại Tasco Pharma, nơi sự cẩn trọng và tuân thủ quy trình góp phần tạo nên những sản phẩm thuốc an toàn, hiệu quả – đúng với định hướng mình theo đuổi từ khi còn trên giảng đường.</p>
+            <div class="gallery">
+              <figure class="wide">
+                <div class="photo-box">
+                  <img class="zoomable" src="images/work-team.jpg" loading="lazy" width="1400" height="1050"
+                       alt="Cùng các anh chị đồng nghiệp tại Tasco Pharma" data-i18n-alt="cap_team">
+                </div>
+                <figcaption data-i18n="cap_team">Cùng các anh chị đồng nghiệp tại Tasco Pharma</figcaption>
+              </figure>
+              <figure>
+                <div class="photo-box">
+                  <img class="zoomable" src="images/work-elevator.jpg" loading="lazy" width="1050" height="1400"
+                       alt="Một ngày đi làm" data-i18n-alt="cap_elevator">
+                </div>
+                <figcaption data-i18n="cap_elevator">Một ngày đi làm</figcaption>
+              </figure>
+              <figure>
+                <div class="photo-box">
+                  <img class="zoomable" src="images/work-colleague.jpg" loading="lazy" width="1050" height="1400"
+                       alt="Cùng đồng nghiệp" data-i18n-alt="cap_colleague">
+                </div>
+                <figcaption data-i18n="cap_colleague">Cùng đồng nghiệp</figcaption>
+              </figure>
+            </div>
           </div>
         </div>
       </div>
@@ -424,30 +646,117 @@
         <h2 class="section-title reveal" data-i18n="hobbies_title">Sở thích</h2>
         <div class="hobbies">
           <div class="card hobby reveal">
-            <span class="emoji" aria-hidden="true">♟️</span>
-            <h3 data-i18n="h_chess">Cờ vua</h3>
-            <p data-i18n="h_chess_d">Rèn sự kiên nhẫn và tư duy chiến lược</p>
+            <div class="hobby-photos n2">
+              <div class="photo-box"><img class="zoomable" src="images/chess-game.jpg" loading="lazy" width="1050" height="1400"
+                   alt="Thi đấu tại Giải cờ vua VCC mở rộng 2026" data-i18n-alt="alt_chess_game"></div>
+              <div class="photo-box"><img class="zoomable pos-top" src="images/chess-results.jpg" loading="lazy" width="1031" height="1400"
+                   alt="Bảng kết quả Giải cờ vua VCC mở rộng 2026 – 4 điểm" data-i18n-alt="alt_chess_results"></div>
+            </div>
+            <div class="hobby-body">
+              <span class="emoji" aria-hidden="true">♟️</span>
+              <h3 data-i18n="h_chess">Cờ vua</h3>
+              <p data-i18n="h_chess_d">Thi đấu tại Giải cờ vua VCC mở rộng 2026 và giành 4 điểm.</p>
+            </div>
           </div>
+
           <div class="card hobby reveal">
-            <span class="emoji" aria-hidden="true">🎒</span>
-            <h3 data-i18n="h_travel">Du lịch</h3>
-            <p data-i18n="h_travel_d">Xách ba lô lên và đi</p>
+            <div class="hobby-photos n2">
+              <div class="photo-box"><img class="zoomable" src="images/travel-waterfall.jpg" loading="lazy" width="1050" height="1400"
+                   alt="Bên dòng thác" data-i18n-alt="alt_waterfall"></div>
+              <div class="photo-box"><img class="zoomable" src="images/travel-forest.jpg" loading="lazy" width="1050" height="1400"
+                   alt="Lội rừng" data-i18n-alt="alt_forest"></div>
+            </div>
+            <div class="hobby-body">
+              <span class="emoji" aria-hidden="true">🎒</span>
+              <h3 data-i18n="h_travel">Du lịch</h3>
+              <p data-i18n="h_travel_d">Lội rừng, tìm thác và khám phá những cung đường mới.</p>
+            </div>
           </div>
+
           <div class="card hobby reveal">
-            <span class="emoji" aria-hidden="true">🐱</span>
-            <h3 data-i18n="h_cat">Mèo</h3>
-            <p data-i18n="h_cat_d">Những người bạn nhỏ đáng yêu</p>
+            <div class="hobby-photos n3">
+              <div class="photo-box"><img class="zoomable" src="images/cat-tabby.jpg" loading="lazy" width="1050" height="1400"
+                   alt="Bé mèo mướp" data-i18n-alt="alt_cat_tabby"></div>
+              <div class="photo-box"><img class="zoomable" src="images/cat-white-1.jpg" loading="lazy" width="1050" height="1400"
+                   alt="Bé mèo trắng" data-i18n-alt="alt_cat_white"></div>
+              <div class="photo-box"><img class="zoomable" src="images/cat-white-2.jpg" loading="lazy" width="1050" height="1400"
+                   alt="Bé mèo trắng nằm ngủ" data-i18n-alt="alt_cat_white2"></div>
+            </div>
+            <div class="hobby-body">
+              <span class="emoji" aria-hidden="true">🐱</span>
+              <h3 data-i18n="h_cat">Mèo</h3>
+              <p data-i18n="h_cat_d">Mèo mướp hay mèo trắng, mình đều mê.</p>
+            </div>
           </div>
+
           <div class="card hobby reveal">
-            <span class="emoji" aria-hidden="true">🌊</span>
-            <h3 data-i18n="h_sea">Biển</h3>
-            <p data-i18n="h_sea_d">Nắng, gió và sóng xanh</p>
+            <div class="hobby-photos n2">
+              <div class="photo-box"><img class="zoomable" src="images/sea-me.jpg" loading="lazy" width="1050" height="1400"
+                   alt="Bảo Ân trên bãi biển" data-i18n-alt="alt_sea_me"></div>
+              <div class="photo-box"><img class="zoomable" src="images/sea-boat.jpg" loading="lazy" width="1050" height="1400"
+                   alt="Thuyền đánh cá bên bờ biển" data-i18n-alt="alt_sea_boat"></div>
+            </div>
+            <div class="hobby-body">
+              <span class="emoji" aria-hidden="true">🌊</span>
+              <h3 data-i18n="h_sea">Biển</h3>
+              <p data-i18n="h_sea_d">Nắng, gió, sóng xanh và những chiếc thuyền đánh cá.</p>
+            </div>
           </div>
+
           <div class="card hobby reveal">
-            <span class="emoji" aria-hidden="true">⛰️</span>
-            <h3 data-i18n="h_mountain">Núi</h3>
-            <p data-i18n="h_mountain_d">Mây trời và những cung đường cao</p>
+            <div class="hobby-photos n2">
+              <div class="photo-box"><img class="zoomable" src="images/mountain-flowers.jpg" loading="lazy" width="1400" height="1050"
+                   alt="Đồi hoa trên núi" data-i18n-alt="alt_mountain_flowers"></div>
+              <div class="photo-box"><img class="zoomable" src="images/friends-mountain.jpg" loading="lazy" width="1050" height="1400"
+                   alt="Leo núi cùng bạn bè" data-i18n-alt="alt_friends_mountain"></div>
+            </div>
+            <div class="hobby-body">
+              <span class="emoji" aria-hidden="true">⛰️</span>
+              <h3 data-i18n="h_mountain">Núi</h3>
+              <p data-i18n="h_mountain_d">Leo núi ngắm hoa và săn mây cùng bạn bè.</p>
+            </div>
           </div>
+
+          <div class="card hobby reveal">
+            <div class="hobby-photos">
+              <div class="photo-box"><img class="zoomable" src="images/gym.jpg" loading="lazy" width="1050" height="1400"
+                   alt="Tập gym" data-i18n-alt="alt_gym" style="object-position: center 40%"></div>
+            </div>
+            <div class="hobby-body">
+              <span class="emoji" aria-hidden="true">🏋️</span>
+              <h3 data-i18n="h_gym">Tập gym</h3>
+              <p data-i18n="h_gym_d">Giữ sức khỏe và sự kỷ luật mỗi ngày.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Family & Friends -->
+    <section id="family">
+      <div class="container">
+        <h2 class="section-title reveal" data-i18n="family_title">Gia đình &amp; Bạn bè</h2>
+        <div class="family reveal">
+          <figure>
+            <div class="photo-box"><img class="zoomable" src="images/sister.jpg" loading="lazy" width="1050" height="1400"
+                 alt="Cùng em gái" data-i18n-alt="cap_sister"></div>
+            <figcaption data-i18n="cap_sister">Cùng em gái</figcaption>
+          </figure>
+          <figure>
+            <div class="photo-box"><img class="zoomable" src="images/friends-huy.jpg" loading="lazy" width="1050" height="1400"
+                 alt="Cùng Huy" data-i18n-alt="cap_huy"></div>
+            <figcaption data-i18n="cap_huy">Cùng Huy</figcaption>
+          </figure>
+          <figure class="wide">
+            <div class="photo-box"><img class="zoomable" src="images/friends-cooking.jpg" loading="lazy" width="1021" height="528"
+                 alt="Nấu ăn dã ngoại cùng bạn bè" data-i18n-alt="cap_cooking"></div>
+            <figcaption data-i18n="cap_cooking">Nấu ăn dã ngoại cùng bạn bè</figcaption>
+          </figure>
+          <figure class="m-wide">
+            <div class="photo-box"><img class="zoomable" src="images/friends-mountain.jpg" loading="lazy" width="1050" height="1400"
+                 alt="Leo núi cùng bạn bè" data-i18n-alt="cap_friends_mountain" style="object-position: center 45%"></div>
+            <figcaption data-i18n="cap_friends_mountain">Leo núi cùng bạn bè</figcaption>
+          </figure>
         </div>
       </div>
     </section>
@@ -477,81 +786,158 @@
     <p>© <span id="year">2026</span> Đào Ngọc Bảo Ân · <span data-i18n="footer">Làm bằng cả trái tim 🧡</span></p>
   </footer>
 
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Xem ảnh" data-i18n-aria="lb_label">
+    <button type="button" class="lb-btn lb-close" id="lbClose" aria-label="Đóng" data-i18n-aria="lb_close">&times;</button>
+    <button type="button" class="lb-btn lb-prev" id="lbPrev" aria-label="Ảnh trước" data-i18n-aria="lb_prev">&#8249;</button>
+    <img id="lbImg" src="" alt="">
+    <p class="lightbox-caption" id="lbCaption"></p>
+    <button type="button" class="lb-btn lb-next" id="lbNext" aria-label="Ảnh sau" data-i18n-aria="lb_next">&#8250;</button>
+  </div>
+
   <script>
     const translations = {
       vi: {
         page_title: "Đào Ngọc Bảo Ân – Giới thiệu",
         nav_about: "Về mình",
-        nav_edu: "Học vấn",
+        nav_journey: "Học vấn & Công việc",
         nav_hobbies: "Sở thích",
+        nav_family: "Gia đình & Bạn bè",
         nav_contact: "Liên hệ",
         hello: "Xin chào, mình là",
-        tagline: "Dược sĩ trẻ yêu sự chính xác, đang hướng tới con đường Đảm bảo chất lượng (QA) trong ngành dược.",
+        tagline: "Dược sĩ trẻ, hiện đang làm Đảm bảo chất lượng (QA) tại Tasco Pharma – yêu sự chính xác, mê leo núi, ra biển và đánh cờ.",
+        badge_work: "🏢 QA tại Tasco Pharma",
         badge_job: "💊 Dược sĩ",
         badge_home: "📍 Cầu Giấy, Hà Nội",
         badge_from: "🏡 Quê TP. Tuyên Quang",
+        alt_avatar: "Ảnh đại diện của Bảo Ân",
         about_title: "Về mình",
-        about_p1: "Mình là Bảo Ân, một dược sĩ trẻ vừa tốt nghiệp. Mình yêu sự chính xác và tỉ mỉ – điều mà cả ngành dược lẫn bàn cờ vua đều đòi hỏi: mỗi quyết định nhỏ đều cần được cân nhắc cẩn thận.",
-        about_p2: "Ngoài giờ học và làm việc, mình thích xách ba lô lên và đi khám phá, từ những bãi biển xanh đến những ngọn núi cao. Mình cũng là một người rất yêu mèo.",
-        about_p3: "Mong muốn của mình là được góp một phần nhỏ vào việc mang đến những sản phẩm thuốc an toàn, chất lượng cho mọi người.",
-        edu_title: "Học vấn & Định hướng",
+        about_p1: "Mình là Bảo Ân, một dược sĩ trẻ tốt nghiệp Trường Đại học Y Dược – Đại học Quốc gia Hà Nội, hiện đang làm Đảm bảo chất lượng (QA) tại Tasco Pharma. Mình yêu sự chính xác và tỉ mỉ – điều mà cả công việc QA lẫn bàn cờ vua đều đòi hỏi. Thỉnh thoảng mình vẫn đăng ký đánh giải, gần nhất là Giải cờ vua VCC mở rộng 2026.",
+        about_p2: "Những lúc rảnh, mình hay xách ba lô đi leo núi ngắm hoa, lội rừng tìm thác hay ra biển hóng gió, và không bao giờ quên chụp lại những khoảnh khắc đẹp trên đường đi. Để có sức cho những chuyến đi ấy, mình duy trì thói quen tập gym đều đặn.",
+        about_p3: "Mình là một “con sen” chính hiệu, mê mèo vô cùng, và luôn trân trọng thời gian bên gia đình, bạn bè. Mong muốn của mình là góp một phần nhỏ vào việc mang đến những sản phẩm thuốc an toàn, chất lượng cho mọi người.",
+        alt_about: "Bảo Ân giữa rừng xanh",
+        journey_title: "Học vấn & Công việc",
         edu_label: "Học vấn",
         edu_degree: "Dược sĩ",
         edu_school: "Trường Đại học Y Dược – Đại học Quốc gia Hà Nội",
-        goal_label: "Định hướng",
-        goal_title: "Đảm bảo chất lượng (QA)",
-        goal_desc: "Mình mong muốn làm việc trong lĩnh vực Đảm bảo chất lượng ngành dược, nơi sự cẩn trọng và tuân thủ quy trình góp phần tạo nên những sản phẩm thuốc an toàn, hiệu quả.",
+        edu_desc: "Năm năm trong chiếc áo blouse trắng đã cho mình nền tảng kiến thức dược học vững vàng và thói quen làm việc cẩn thận, chính xác.",
+        cap_graduation: "Lễ tốt nghiệp",
+        cap_labcoat: "Áo blouse trắng ở trường",
+        work_label: "Công việc",
+        work_title: "Đảm bảo chất lượng (QA)",
+        work_period: "Hiện tại",
+        work_desc: "Hiện mình đang làm QA tại Tasco Pharma, nơi sự cẩn trọng và tuân thủ quy trình góp phần tạo nên những sản phẩm thuốc an toàn, hiệu quả – đúng với định hướng mình theo đuổi từ khi còn trên giảng đường.",
+        cap_team: "Cùng các anh chị đồng nghiệp tại Tasco Pharma",
+        cap_elevator: "Một ngày đi làm",
+        cap_colleague: "Cùng đồng nghiệp",
         hobbies_title: "Sở thích",
         h_chess: "Cờ vua",
-        h_chess_d: "Rèn sự kiên nhẫn và tư duy chiến lược",
+        h_chess_d: "Thi đấu tại Giải cờ vua VCC mở rộng 2026 và giành 4 điểm.",
+        alt_chess_game: "Thi đấu tại Giải cờ vua VCC mở rộng 2026",
+        alt_chess_results: "Bảng kết quả Giải cờ vua VCC mở rộng 2026 – 4 điểm",
         h_travel: "Du lịch",
-        h_travel_d: "Xách ba lô lên và đi",
+        h_travel_d: "Lội rừng, tìm thác và khám phá những cung đường mới.",
+        alt_waterfall: "Bên dòng thác",
+        alt_forest: "Lội rừng",
         h_cat: "Mèo",
-        h_cat_d: "Những người bạn nhỏ đáng yêu",
+        h_cat_d: "Mèo mướp hay mèo trắng, mình đều mê.",
+        alt_cat_tabby: "Bé mèo mướp",
+        alt_cat_white: "Bé mèo trắng",
+        alt_cat_white2: "Bé mèo trắng nằm ngủ",
         h_sea: "Biển",
-        h_sea_d: "Nắng, gió và sóng xanh",
+        h_sea_d: "Nắng, gió, sóng xanh và những chiếc thuyền đánh cá.",
+        alt_sea_me: "Bảo Ân trên bãi biển",
+        alt_sea_boat: "Thuyền đánh cá bên bờ biển",
         h_mountain: "Núi",
-        h_mountain_d: "Mây trời và những cung đường cao",
+        h_mountain_d: "Leo núi ngắm hoa và săn mây cùng bạn bè.",
+        alt_mountain_flowers: "Đồi hoa trên núi",
+        alt_friends_mountain: "Leo núi cùng bạn bè",
+        h_gym: "Tập gym",
+        h_gym_d: "Giữ sức khỏe và sự kỷ luật mỗi ngày.",
+        alt_gym: "Tập gym",
+        family_title: "Gia đình & Bạn bè",
+        cap_sister: "Cùng em gái",
+        cap_huy: "Cùng Huy",
+        cap_cooking: "Nấu ăn dã ngoại cùng bạn bè",
+        cap_friends_mountain: "Leo núi cùng bạn bè",
         contact_title: "Liên hệ",
         contact_desc: "Rất vui được kết nối với bạn! Đừng ngại gửi cho mình một lời chào nhé.",
-        footer: "Làm bằng cả trái tim 🧡"
+        footer: "Làm bằng cả trái tim 🧡",
+        lb_label: "Xem ảnh",
+        lb_close: "Đóng",
+        lb_prev: "Ảnh trước",
+        lb_next: "Ảnh sau"
       },
       en: {
         page_title: "Đào Ngọc Bảo Ân – About Me",
         nav_about: "About",
-        nav_edu: "Education",
+        nav_journey: "Education & Work",
         nav_hobbies: "Interests",
+        nav_family: "Family & Friends",
         nav_contact: "Contact",
         hello: "Hi there, I'm",
-        tagline: "A young pharmacist with a passion for precision, building a career in pharmaceutical Quality Assurance (QA).",
+        tagline: "A young pharmacist working in Quality Assurance (QA) at Tasco Pharma – passionate about precision, mountains, the sea and chess.",
+        badge_work: "🏢 QA at Tasco Pharma",
         badge_job: "💊 Pharmacist",
         badge_home: "📍 Cau Giay, Hanoi",
         badge_from: "🏡 From Tuyen Quang City",
+        alt_avatar: "Profile photo of Bao An",
         about_title: "About Me",
-        about_p1: "I'm Bao An, a recently graduated pharmacist. I value precision and attention to detail – qualities that both pharmacy and the chessboard demand, where every small decision deserves careful thought.",
-        about_p2: "Outside of work and study, I love grabbing my backpack and setting off to explore, from blue seas to high mountains. I'm also a devoted cat lover.",
-        about_p3: "My goal is to contribute, in my own way, to bringing safe, high-quality medicines to people.",
-        edu_title: "Education & Career Goals",
+        about_p1: "I'm Bao An, a young pharmacist who graduated from VNU University of Medicine and Pharmacy, Vietnam National University, Hanoi, and I currently work in Quality Assurance (QA) at Tasco Pharma. I value precision and attention to detail – qualities that both QA work and the chessboard demand. I still enter tournaments from time to time, most recently the VCC Open Chess Tournament 2026.",
+        about_p2: "In my free time, I grab my backpack to hike up mountains for the flowers, trek through forests in search of waterfalls, or head to the beach for some sea breeze – always making sure to capture the beautiful moments along the way. To keep up with all these adventures, I train at the gym regularly.",
+        about_p3: "I'm a true cat person, and I treasure every moment spent with my family and friends. My goal is to contribute, in my own way, to bringing safe, high-quality medicines to people.",
+        alt_about: "Bao An in a lush green forest",
+        journey_title: "Education & Work",
         edu_label: "Education",
         edu_degree: "Pharmacist",
         edu_school: "VNU University of Medicine and Pharmacy – Vietnam National University, Hanoi",
-        goal_label: "Career Goal",
-        goal_title: "Quality Assurance (QA)",
-        goal_desc: "I aim to work in pharmaceutical Quality Assurance, where diligence and strict adherence to procedures help deliver medicines that are safe and effective.",
+        edu_desc: "Five years in a white lab coat gave me a solid foundation in pharmaceutical sciences and a habit of working carefully and precisely.",
+        cap_graduation: "Graduation day",
+        cap_labcoat: "In my lab coat at university",
+        work_label: "Work",
+        work_title: "Quality Assurance (QA)",
+        work_period: "Present",
+        work_desc: "I currently work in QA at Tasco Pharma, where diligence and strict adherence to procedures help deliver safe, effective medicines – the very path I set out on back in university.",
+        cap_team: "With my colleagues at Tasco Pharma",
+        cap_elevator: "A day at work",
+        cap_colleague: "With a colleague",
         hobbies_title: "Interests",
         h_chess: "Chess",
-        h_chess_d: "Building patience and strategic thinking",
+        h_chess_d: "Competed in the VCC Open Chess Tournament 2026, scoring 4 points.",
+        alt_chess_game: "Playing at the VCC Open Chess Tournament 2026",
+        alt_chess_results: "VCC Open Chess Tournament 2026 results – 4 points",
         h_travel: "Travel",
-        h_travel_d: "Backpack on, ready to go",
+        h_travel_d: "Trekking through forests, chasing waterfalls and discovering new trails.",
+        alt_waterfall: "By a waterfall",
+        alt_forest: "Trekking in the forest",
         h_cat: "Cats",
-        h_cat_d: "Lovely little companions",
+        h_cat_d: "Tabby or white, I adore them all.",
+        alt_cat_tabby: "A tabby kitten",
+        alt_cat_white: "A white cat",
+        alt_cat_white2: "A white cat napping",
         h_sea: "The Sea",
-        h_sea_d: "Sunshine, breeze and blue waves",
+        h_sea_d: "Sunshine, sea breeze, blue waves and fishing boats.",
+        alt_sea_me: "Bao An on the beach",
+        alt_sea_boat: "A fishing boat on the shore",
         h_mountain: "Mountains",
-        h_mountain_d: "Open skies and winding high roads",
+        h_mountain_d: "Hiking to see the flowers and chase the clouds with friends.",
+        alt_mountain_flowers: "A hillside of flowers in the mountains",
+        alt_friends_mountain: "Hiking with friends",
+        h_gym: "Gym",
+        h_gym_d: "Staying healthy and disciplined every day.",
+        alt_gym: "Working out at the gym",
+        family_title: "Family & Friends",
+        cap_sister: "With my younger sister",
+        cap_huy: "With Huy",
+        cap_cooking: "Cooking outdoors with friends",
+        cap_friends_mountain: "Hiking with friends",
         contact_title: "Get in Touch",
         contact_desc: "I'd love to connect! Feel free to drop me a line anytime.",
-        footer: "Made with love 🧡"
+        footer: "Made with love 🧡",
+        lb_label: "Photo viewer",
+        lb_close: "Close",
+        lb_prev: "Previous photo",
+        lb_next: "Next photo"
       }
     };
 
@@ -563,6 +949,14 @@
         const key = el.getAttribute("data-i18n");
         if (dict[key] !== undefined) el.textContent = dict[key];
       });
+      document.querySelectorAll("[data-i18n-alt]").forEach(el => {
+        const key = el.getAttribute("data-i18n-alt");
+        if (dict[key] !== undefined) el.alt = dict[key];
+      });
+      document.querySelectorAll("[data-i18n-aria]").forEach(el => {
+        const key = el.getAttribute("data-i18n-aria");
+        if (dict[key] !== undefined) el.setAttribute("aria-label", dict[key]);
+      });
       document.documentElement.lang = lang;
       document.title = dict.page_title;
       buttons.forEach(btn => {
@@ -570,6 +964,7 @@
         btn.classList.toggle("active", active);
         btn.setAttribute("aria-pressed", active);
       });
+      if (lightbox.classList.contains("open")) showImage(current);
       try { localStorage.setItem("lang", lang); } catch (e) {}
     }
 
@@ -583,6 +978,75 @@
     }
 
     buttons.forEach(btn => btn.addEventListener("click", () => switchLanguage(btn.dataset.lang)));
+
+    // ---------- Lightbox ----------
+    const lightbox = document.getElementById("lightbox");
+    const lbImg = document.getElementById("lbImg");
+    const lbCaption = document.getElementById("lbCaption");
+    const lbClose = document.getElementById("lbClose");
+    const lbPrev = document.getElementById("lbPrev");
+    const lbNext = document.getElementById("lbNext");
+    const zoomables = Array.from(document.querySelectorAll("img.zoomable"));
+    let current = 0;
+    let lastFocus = null;
+
+    function showImage(i) {
+      current = (i + zoomables.length) % zoomables.length;
+      const img = zoomables[current];
+      lbImg.src = img.currentSrc || img.src;
+      lbImg.alt = img.alt;
+      lbCaption.textContent = img.alt;
+    }
+
+    function openLightbox(i) {
+      lastFocus = document.activeElement;
+      showImage(i);
+      lightbox.classList.add("open");
+      lightbox.setAttribute("aria-hidden", "false");
+      document.body.classList.add("no-scroll");
+      lbClose.focus();
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove("open");
+      lightbox.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("no-scroll");
+      if (lastFocus) lastFocus.focus();
+    }
+
+    zoomables.forEach((img, i) => {
+      img.tabIndex = 0;
+      img.setAttribute("role", "button");
+      img.addEventListener("click", () => openLightbox(i));
+      img.addEventListener("keydown", e => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          openLightbox(i);
+        }
+      });
+    });
+
+    lbClose.addEventListener("click", closeLightbox);
+    lbPrev.addEventListener("click", () => showImage(current - 1));
+    lbNext.addEventListener("click", () => showImage(current + 1));
+    // Click on the dark backdrop (outside the photo and buttons) closes it
+    lightbox.addEventListener("click", e => {
+      if (e.target === lightbox || e.target === lbCaption) closeLightbox();
+    });
+    document.addEventListener("keydown", e => {
+      if (!lightbox.classList.contains("open")) return;
+      if (e.key === "Escape") closeLightbox();
+      else if (e.key === "ArrowLeft") showImage(current - 1);
+      else if (e.key === "ArrowRight") showImage(current + 1);
+      else if (e.key === "Tab") {
+        // Keep keyboard focus inside the lightbox
+        const focusables = [lbClose, lbPrev, lbNext];
+        const idx = focusables.indexOf(document.activeElement);
+        e.preventDefault();
+        const next = e.shiftKey ? idx - 1 : idx + 1;
+        focusables[(next + focusables.length) % focusables.length].focus();
+      }
+    });
 
     // Default: Vietnamese, unless the visitor chose English before
     let saved = "vi";
@@ -608,7 +1072,7 @@
             io.unobserve(entry.target);
           }
         });
-      }, { threshold: 0.12 });
+      }, { threshold: 0.08 });
       revealEls.forEach(el => io.observe(el));
     } else {
       revealEls.forEach(el => el.classList.add("visible"));
