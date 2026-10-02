@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Đào Ngọc Bảo Ân – Giới thiệu</title>
+  <title>Đào Ngọc Bảo Ân – About Me</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Lora:wght@600;700&subset=vietnamese&display=swap" rel="stylesheet">
-  <meta name="description" content="Trang giới thiệu cá nhân của Đào Ngọc Bảo Ân – dược sĩ trẻ, hiện làm Đảm bảo chất lượng (QA) tại Tasco Pharma.">
+  <meta name="description" content="Personal website of Đào Ngọc Bảo Ân – a young pharmacist working in Quality Assurance (QA) at Tasco Pharma.">
   <style>
     :root {
       --bg: #fbf6ef;
@@ -86,32 +86,6 @@
     }
     .nav a:hover { color: var(--accent); }
 
-    .lang-switch {
-      display: inline-flex;
-      background: var(--bg-soft);
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      padding: 3px;
-      flex-shrink: 0;
-    }
-    .lang-switch button {
-      border: none;
-      background: transparent;
-      color: var(--muted);
-      font: inherit;
-      font-weight: 600;
-      font-size: .85rem;
-      padding: 6px 14px;
-      border-radius: 999px;
-      cursor: pointer;
-      transition: background .25s, color .25s;
-    }
-    .lang-switch button.active {
-      background: var(--accent);
-      color: #fff;
-      box-shadow: 0 2px 8px rgba(201, 111, 74, .35);
-    }
-    .lang-switch button:focus-visible,
     .zoomable:focus-visible {
       outline: 3px solid var(--accent-dark);
       outline-offset: 2px;
@@ -463,9 +437,6 @@
     }
     .reveal.visible { opacity: 1; transform: none; }
 
-    [data-i18n] { transition: opacity .2s; }
-    body.switching [data-i18n] { opacity: 0; }
-
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       .reveal { opacity: 1; transform: none; transition: none; }
@@ -518,16 +489,12 @@
     <div class="container">
       <a href="#top" class="logo">Bảo Ân</a>
       <ul class="nav">
-        <li><a href="#about" data-i18n="nav_about">Về mình</a></li>
-        <li><a href="#journey" data-i18n="nav_journey">Học vấn &amp; Công việc</a></li>
-        <li><a href="#hobbies" data-i18n="nav_hobbies">Sở thích</a></li>
-        <li><a href="#family" data-i18n="nav_family">Gia đình &amp; Bạn bè</a></li>
-        <li><a href="#contact" data-i18n="nav_contact">Liên hệ</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#journey">Education &amp; Work</a></li>
+        <li><a href="#hobbies">Interests</a></li>
+        <li><a href="#family">Family &amp; Friends</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
-      <div class="lang-switch" role="group" aria-label="Language / Ngôn ngữ">
-        <button type="button" data-lang="vi" class="active" aria-pressed="true">VI</button>
-        <button type="button" data-lang="en" aria-pressed="false">EN</button>
-      </div>
     </div>
   </header>
 
@@ -537,16 +504,16 @@
       <div class="container">
         <div class="avatar">
           <img class="zoomable" src="images/avatar.jpg" width="480" height="480"
-               alt="Ảnh đại diện của Bảo Ân" data-i18n-alt="alt_avatar">
+               alt="Profile photo of Bao An">
         </div>
-        <p class="hello" data-i18n="hello">Xin chào, mình là</p>
+        <p class="hello">Hi there, I'm</p>
         <h1>Đào Ngọc Bảo Ân</h1>
-        <p class="tagline" data-i18n="tagline">Dược sĩ trẻ, hiện đang làm Đảm bảo chất lượng (QA) tại Tasco Pharma – yêu sự chính xác, mê leo núi, ra biển và đánh cờ.</p>
+        <p class="tagline">A young pharmacist working in Quality Assurance (QA) at Tasco Pharma – passionate about precision, mountains, the sea and chess.</p>
         <div class="badges">
-          <span class="badge highlight" data-i18n="badge_work">🏢 QA tại Tasco Pharma</span>
-          <span class="badge" data-i18n="badge_job">💊 Dược sĩ</span>
-          <span class="badge" data-i18n="badge_home">📍 Cầu Giấy, Hà Nội</span>
-          <span class="badge" data-i18n="badge_from">🏡 Quê TP. Tuyên Quang</span>
+          <span class="badge highlight">🏢 QA at Tasco Pharma</span>
+          <span class="badge">💊 Pharmacist</span>
+          <span class="badge">📍 Cau Giay, Hanoi</span>
+          <span class="badge">🏡 From Tuyen Quang City</span>
         </div>
       </div>
     </div>
@@ -554,16 +521,16 @@
     <!-- About -->
     <section id="about">
       <div class="container">
-        <h2 class="section-title reveal" data-i18n="about_title">Về mình</h2>
+        <h2 class="section-title reveal">About Me</h2>
         <div class="card about reveal">
           <div class="about-text">
-            <p data-i18n="about_p1">Mình là Bảo Ân, một dược sĩ trẻ tốt nghiệp Trường Đại học Y Dược – Đại học Quốc gia Hà Nội, hiện đang làm Đảm bảo chất lượng (QA) tại Tasco Pharma. Mình yêu sự chính xác và tỉ mỉ – điều mà cả công việc QA lẫn bàn cờ vua đều đòi hỏi. Thỉnh thoảng mình vẫn đăng ký đánh giải, gần nhất là Giải cờ vua VCC mở rộng 2026.</p>
-            <p data-i18n="about_p2">Những lúc rảnh, mình hay xách ba lô đi leo núi ngắm hoa, lội rừng tìm thác hay ra biển hóng gió, và không bao giờ quên chụp lại những khoảnh khắc đẹp trên đường đi. Để có sức cho những chuyến đi ấy, mình duy trì thói quen tập gym đều đặn.</p>
-            <p data-i18n="about_p3">Mình là một “con sen” chính hiệu, mê mèo vô cùng, và luôn trân trọng thời gian bên gia đình, bạn bè. Mong muốn của mình là góp một phần nhỏ vào việc mang đến những sản phẩm thuốc an toàn, chất lượng cho mọi người.</p>
+            <p>I'm Bao An, a young pharmacist who graduated from VNU University of Medicine and Pharmacy, Vietnam National University, Hanoi, and I currently work in Quality Assurance (QA) at Tasco Pharma. I value precision and attention to detail – qualities that both QA work and the chessboard demand. I still enter tournaments from time to time, most recently the VCC Open Chess Tournament 2026.</p>
+            <p>In my free time, I grab my backpack to hike up mountains for the flowers, trek through forests in search of waterfalls, or head to the beach for some sea breeze – always making sure to capture the beautiful moments along the way. To keep up with all these adventures, I train at the gym regularly.</p>
+            <p>I'm a true cat person, and I treasure every moment spent with my family and friends. My goal is to contribute, in my own way, to bringing safe, high-quality medicines to people.</p>
           </div>
           <div class="about-photo photo-box">
             <img class="zoomable" src="images/travel-forest.jpg" loading="lazy" width="1050" height="1400"
-                 alt="Bảo Ân giữa rừng xanh" data-i18n-alt="alt_about">
+                 alt="Bao An in a lush green forest">
           </div>
         </div>
       </div>
@@ -572,40 +539,40 @@
     <!-- Education & Work -->
     <section id="journey">
       <div class="container">
-        <h2 class="section-title reveal" data-i18n="journey_title">Học vấn &amp; Công việc</h2>
+        <h2 class="section-title reveal">Education &amp; Work</h2>
         <div class="journey-grid">
           <div class="card edu reveal">
             <div class="journey-head">
               <div class="icon" aria-hidden="true">🎓</div>
               <div>
-                <span class="label" data-i18n="edu_label">Học vấn</span>
-                <h3 data-i18n="edu_degree">Dược sĩ</h3>
-                <p class="meta" data-i18n="edu_school">Trường Đại học Y Dược – Đại học Quốc gia Hà Nội</p>
+                <span class="label">Education</span>
+                <h3>Pharmacist</h3>
+                <p class="meta">VNU University of Medicine and Pharmacy – Vietnam National University, Hanoi</p>
                 <span class="period">2021 – 2026</span>
               </div>
             </div>
-            <p class="journey-desc" data-i18n="edu_desc">Năm năm trong chiếc áo blouse trắng đã cho mình nền tảng kiến thức dược học vững vàng và thói quen làm việc cẩn thận, chính xác.</p>
+            <p class="journey-desc">Five years in a white lab coat gave me a solid foundation in pharmaceutical sciences and a habit of working carefully and precisely.</p>
             <div class="gallery edu-gallery">
               <figure class="wide">
                 <div class="photo-box">
                   <img class="zoomable" src="images/school-art-contest.jpg" loading="lazy" width="1400" height="1050"
-                       alt="Cùng thầy cô và các bạn sinh viên trong hội diễn văn nghệ ở trường" data-i18n-alt="cap_contest">
+                       alt="With fellow students and lecturers after our performance won Second Prize at the university arts festival">
                 </div>
-                <figcaption data-i18n="cap_contest">Cùng thầy cô và các bạn sinh viên trong hội diễn văn nghệ ở trường</figcaption>
+                <figcaption>With fellow students and lecturers after our performance won Second Prize at the university arts festival</figcaption>
               </figure>
               <figure>
                 <div class="photo-box">
                   <img class="zoomable" src="images/graduation.jpg" style="object-position: 15% center" loading="lazy" width="1184" height="888"
-                       alt="Lễ tốt nghiệp" data-i18n-alt="cap_graduation">
+                       alt="Graduation day">
                 </div>
-                <figcaption data-i18n="cap_graduation">Lễ tốt nghiệp</figcaption>
+                <figcaption>Graduation day</figcaption>
               </figure>
               <figure>
                 <div class="photo-box">
                   <img class="zoomable" src="images/school-labcoat.jpg" loading="lazy" width="1050" height="1400"
-                       alt="Áo blouse trắng ở trường" data-i18n-alt="cap_labcoat">
+                       alt="In my lab coat at university">
                 </div>
-                <figcaption data-i18n="cap_labcoat">Áo blouse trắng ở trường</figcaption>
+                <figcaption>In my lab coat at university</figcaption>
               </figure>
             </div>
           </div>
@@ -614,27 +581,27 @@
             <div class="journey-head">
               <div class="icon" aria-hidden="true">🔬</div>
               <div>
-                <span class="label" data-i18n="work_label">Công việc</span>
-                <h3 data-i18n="work_title">Đảm bảo chất lượng (QA)</h3>
+                <span class="label">Work</span>
+                <h3>Quality Assurance (QA)</h3>
                 <p class="meta">Tasco Pharma</p>
-                <span class="period now" data-i18n="work_period">Hiện tại</span>
+                <span class="period now">Present</span>
               </div>
             </div>
-            <p class="journey-desc" data-i18n="work_desc">Hiện mình đang làm QA tại Tasco Pharma, nơi sự cẩn trọng và tuân thủ quy trình góp phần tạo nên những sản phẩm thuốc an toàn, hiệu quả – đúng với định hướng mình theo đuổi từ khi còn trên giảng đường.</p>
+            <p class="journey-desc">I currently work in QA at Tasco Pharma, where diligence and strict adherence to procedures help deliver safe, effective medicines – the very path I set out on back in university.</p>
             <div class="gallery">
               <figure>
                 <div class="photo-box">
                   <img class="zoomable" src="images/work-elevator.jpg" loading="lazy" width="1050" height="1400"
-                       alt="Một ngày đi làm" data-i18n-alt="cap_elevator">
+                       alt="A day at work">
                 </div>
-                <figcaption data-i18n="cap_elevator">Một ngày đi làm</figcaption>
+                <figcaption>A day at work</figcaption>
               </figure>
               <figure>
                 <div class="photo-box">
                   <img class="zoomable" src="images/work-colleague.jpg" loading="lazy" width="1050" height="1400"
-                       alt="Cùng đồng nghiệp" data-i18n-alt="cap_colleague">
+                       alt="With a colleague">
                 </div>
-                <figcaption data-i18n="cap_colleague">Cùng đồng nghiệp</figcaption>
+                <figcaption>With a colleague</figcaption>
               </figure>
             </div>
           </div>
@@ -645,89 +612,89 @@
     <!-- Hobbies -->
     <section id="hobbies">
       <div class="container">
-        <h2 class="section-title reveal" data-i18n="hobbies_title">Sở thích</h2>
+        <h2 class="section-title reveal">Interests</h2>
         <div class="hobbies">
           <div class="card hobby reveal">
             <div class="hobby-photos n2">
               <div class="photo-box"><img class="zoomable" src="images/chess-game.jpg" loading="lazy" width="1050" height="1400"
-                   alt="Thi đấu tại Giải cờ vua VCC mở rộng 2026" data-i18n-alt="alt_chess_game"></div>
+                   alt="Playing at the VCC Open Chess Tournament 2026"></div>
               <div class="photo-box"><img class="zoomable pos-top" src="images/chess-results.jpg" loading="lazy" width="1031" height="1400"
-                   alt="Bảng kết quả Giải cờ vua VCC mở rộng 2026 – 4 điểm" data-i18n-alt="alt_chess_results"></div>
+                   alt="VCC Open Chess Tournament 2026 results – 4 points"></div>
             </div>
             <div class="hobby-body">
               <span class="emoji" aria-hidden="true">♟️</span>
-              <h3 data-i18n="h_chess">Cờ vua</h3>
-              <p data-i18n="h_chess_d">Thi đấu tại Giải cờ vua VCC mở rộng 2026 và giành 4 điểm.</p>
+              <h3>Chess</h3>
+              <p>Competed in the VCC Open Chess Tournament 2026, scoring 4 points.</p>
             </div>
           </div>
 
           <div class="card hobby reveal">
             <div class="hobby-photos n2">
               <div class="photo-box"><img class="zoomable" src="images/travel-waterfall.jpg" loading="lazy" width="1050" height="1400"
-                   alt="Bên dòng thác" data-i18n-alt="alt_waterfall"></div>
+                   alt="By a waterfall"></div>
               <div class="photo-box"><img class="zoomable" src="images/travel-forest.jpg" loading="lazy" width="1050" height="1400"
-                   alt="Lội rừng" data-i18n-alt="alt_forest"></div>
+                   alt="Trekking in the forest"></div>
             </div>
             <div class="hobby-body">
               <span class="emoji" aria-hidden="true">🎒</span>
-              <h3 data-i18n="h_travel">Du lịch</h3>
-              <p data-i18n="h_travel_d">Lội rừng, tìm thác và khám phá những cung đường mới.</p>
+              <h3>Travel</h3>
+              <p>Trekking through forests, chasing waterfalls and discovering new trails.</p>
             </div>
           </div>
 
           <div class="card hobby reveal">
             <div class="hobby-photos n3">
               <div class="photo-box"><img class="zoomable" src="images/cat-tabby.jpg" loading="lazy" width="1050" height="1400"
-                   alt="Bé mèo mướp" data-i18n-alt="alt_cat_tabby"></div>
+                   alt="A tabby kitten"></div>
               <div class="photo-box"><img class="zoomable" src="images/cat-white-1.jpg" loading="lazy" width="1050" height="1400"
-                   alt="Bé mèo trắng" data-i18n-alt="alt_cat_white"></div>
+                   alt="A white cat"></div>
               <div class="photo-box"><img class="zoomable" src="images/cat-white-2.jpg" loading="lazy" width="1050" height="1400"
-                   alt="Bé mèo trắng nằm ngủ" data-i18n-alt="alt_cat_white2"></div>
+                   alt="A white cat napping"></div>
             </div>
             <div class="hobby-body">
               <span class="emoji" aria-hidden="true">🐱</span>
-              <h3 data-i18n="h_cat">Mèo</h3>
-              <p data-i18n="h_cat_d">Mèo mướp hay mèo trắng, mình đều mê.</p>
+              <h3>Cats</h3>
+              <p>Tabby or white, I adore them all.</p>
             </div>
           </div>
 
           <div class="card hobby reveal">
             <div class="hobby-photos n2">
               <div class="photo-box"><img class="zoomable" src="images/sea-me.jpg" loading="lazy" width="1050" height="1400"
-                   alt="Bảo Ân trên bãi biển" data-i18n-alt="alt_sea_me"></div>
+                   alt="Bao An on the beach"></div>
               <div class="photo-box"><img class="zoomable" src="images/sea-boat.jpg" loading="lazy" width="1050" height="1400"
-                   alt="Thuyền đánh cá bên bờ biển" data-i18n-alt="alt_sea_boat"></div>
+                   alt="A fishing boat on the shore"></div>
             </div>
             <div class="hobby-body">
               <span class="emoji" aria-hidden="true">🌊</span>
-              <h3 data-i18n="h_sea">Biển</h3>
-              <p data-i18n="h_sea_d">Nắng, gió, sóng xanh và những chiếc thuyền đánh cá.</p>
+              <h3>The Sea</h3>
+              <p>Sunshine, sea breeze, blue waves and fishing boats.</p>
             </div>
           </div>
 
           <div class="card hobby reveal">
             <div class="hobby-photos n2">
               <div class="photo-box"><img class="zoomable" src="images/mountain-flowers.jpg" loading="lazy" width="1400" height="1050"
-                   alt="Đồi hoa trên núi" data-i18n-alt="alt_mountain_flowers"></div>
+                   alt="A hillside of flowers in the mountains"></div>
               <div class="photo-box"><img class="zoomable" src="images/friends-mountain.jpg" loading="lazy" width="1050" height="1400"
-                   alt="Leo núi cùng bạn bè" data-i18n-alt="alt_friends_mountain"></div>
+                   alt="Hiking with friends"></div>
             </div>
             <div class="hobby-body">
               <span class="emoji" aria-hidden="true">⛰️</span>
-              <h3 data-i18n="h_mountain">Núi</h3>
-              <p data-i18n="h_mountain_d">Leo núi ngắm hoa và săn mây cùng bạn bè.</p>
+              <h3>Mountains</h3>
+              <p>Hiking to see the flowers and chase the clouds with friends.</p>
             </div>
           </div>
 
           <div class="card hobby reveal">
             <div class="hobby-photos">
               <div class="photo-box"><img class="zoomable" src="images/gym.jpg" loading="lazy" width="1050" height="1400"
-                   alt="Tập gym" data-i18n-alt="alt_gym" style="object-position: center 40%"></div>
+                   alt="Working out at the gym" style="object-position: center 40%"></div>
             </div>
             <div class="hobby-body">
               <span class="emoji" aria-hidden="true">🏋️</span>
-              <h3 data-i18n="h_gym">Tập gym</h3>
-              <p data-i18n="h_gym_d">Giữ sức khỏe và sự kỷ luật mỗi ngày.</p>
+              <h3>Gym</h3>
+              <p>Staying healthy and disciplined every day.</p>
             </div>
           </div>
         </div>
@@ -737,27 +704,27 @@
     <!-- Family & Friends -->
     <section id="family">
       <div class="container">
-        <h2 class="section-title reveal" data-i18n="family_title">Gia đình &amp; Bạn bè</h2>
+        <h2 class="section-title reveal">Family &amp; Friends</h2>
         <div class="family reveal">
           <figure>
             <div class="photo-box"><img class="zoomable" src="images/sister.jpg" loading="lazy" width="1050" height="1400"
-                 alt="Cùng em gái" data-i18n-alt="cap_sister"></div>
-            <figcaption data-i18n="cap_sister">Cùng em gái</figcaption>
+                 alt="With my younger sister"></div>
+            <figcaption>With my younger sister</figcaption>
           </figure>
           <figure>
             <div class="photo-box"><img class="zoomable" src="images/friends-huy.jpg" loading="lazy" width="1050" height="1400"
-                 alt="Cùng Huy" data-i18n-alt="cap_huy"></div>
-            <figcaption data-i18n="cap_huy">Cùng Huy</figcaption>
+                 alt="With Huy"></div>
+            <figcaption>With Huy</figcaption>
           </figure>
           <figure class="wide">
             <div class="photo-box"><img class="zoomable" src="images/friends-cooking.jpg" loading="lazy" width="1021" height="528"
-                 alt="Nấu bánh chưng ngày Tết cùng anh em họ" data-i18n-alt="cap_cooking"></div>
-            <figcaption data-i18n="cap_cooking">Nấu bánh chưng ngày Tết cùng anh em họ</figcaption>
+                 alt="Boiling bánh chưng for Tết with my cousins"></div>
+            <figcaption>Boiling bánh chưng for Tết with my cousins</figcaption>
           </figure>
           <figure class="m-wide">
             <div class="photo-box"><img class="zoomable" src="images/friends-mountain.jpg" loading="lazy" width="1050" height="1400"
-                 alt="Leo núi cùng bạn bè" data-i18n-alt="cap_friends_mountain" style="object-position: center 45%"></div>
-            <figcaption data-i18n="cap_friends_mountain">Leo núi cùng bạn bè</figcaption>
+                 alt="Hiking with friends" style="object-position: center 45%"></div>
+            <figcaption>Hiking with friends</figcaption>
           </figure>
         </div>
       </div>
@@ -766,9 +733,9 @@
     <!-- Contact -->
     <section id="contact">
       <div class="container">
-        <h2 class="section-title reveal" data-i18n="contact_title">Liên hệ</h2>
+        <h2 class="section-title reveal">Get in Touch</h2>
         <div class="card contact reveal">
-          <p data-i18n="contact_desc">Rất vui được kết nối với bạn! Đừng ngại gửi cho mình một lời chào nhé.</p>
+          <p>I'd love to connect! Feel free to drop me a line anytime.</p>
           <div class="contact-links">
             <a class="btn btn-primary" href="mailto:daoan11062k3@gmail.com">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
@@ -785,202 +752,19 @@
   </main>
 
   <footer>
-    <p>© <span id="year">2026</span> Đào Ngọc Bảo Ân · <span data-i18n="footer">Làm bằng cả trái tim 🧡</span></p>
+    <p>© <span id="year">2026</span> Đào Ngọc Bảo Ân · <span>Made with love 🧡</span></p>
   </footer>
 
   <!-- Lightbox -->
-  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Xem ảnh" data-i18n-aria="lb_label">
-    <button type="button" class="lb-btn lb-close" id="lbClose" aria-label="Đóng" data-i18n-aria="lb_close">&times;</button>
-    <button type="button" class="lb-btn lb-prev" id="lbPrev" aria-label="Ảnh trước" data-i18n-aria="lb_prev">&#8249;</button>
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Photo viewer">
+    <button type="button" class="lb-btn lb-close" id="lbClose" aria-label="Close">&times;</button>
+    <button type="button" class="lb-btn lb-prev" id="lbPrev" aria-label="Previous photo">&#8249;</button>
     <img id="lbImg" src="" alt="">
     <p class="lightbox-caption" id="lbCaption"></p>
-    <button type="button" class="lb-btn lb-next" id="lbNext" aria-label="Ảnh sau" data-i18n-aria="lb_next">&#8250;</button>
+    <button type="button" class="lb-btn lb-next" id="lbNext" aria-label="Next photo">&#8250;</button>
   </div>
 
   <script>
-    const translations = {
-      vi: {
-        page_title: "Đào Ngọc Bảo Ân – Giới thiệu",
-        nav_about: "Về mình",
-        nav_journey: "Học vấn & Công việc",
-        nav_hobbies: "Sở thích",
-        nav_family: "Gia đình & Bạn bè",
-        nav_contact: "Liên hệ",
-        hello: "Xin chào, mình là",
-        tagline: "Dược sĩ trẻ, hiện đang làm Đảm bảo chất lượng (QA) tại Tasco Pharma – yêu sự chính xác, mê leo núi, ra biển và đánh cờ.",
-        badge_work: "🏢 QA tại Tasco Pharma",
-        badge_job: "💊 Dược sĩ",
-        badge_home: "📍 Cầu Giấy, Hà Nội",
-        badge_from: "🏡 Quê TP. Tuyên Quang",
-        alt_avatar: "Ảnh đại diện của Bảo Ân",
-        about_title: "Về mình",
-        about_p1: "Mình là Bảo Ân, một dược sĩ trẻ tốt nghiệp Trường Đại học Y Dược – Đại học Quốc gia Hà Nội, hiện đang làm Đảm bảo chất lượng (QA) tại Tasco Pharma. Mình yêu sự chính xác và tỉ mỉ – điều mà cả công việc QA lẫn bàn cờ vua đều đòi hỏi. Thỉnh thoảng mình vẫn đăng ký đánh giải, gần nhất là Giải cờ vua VCC mở rộng 2026.",
-        about_p2: "Những lúc rảnh, mình hay xách ba lô đi leo núi ngắm hoa, lội rừng tìm thác hay ra biển hóng gió, và không bao giờ quên chụp lại những khoảnh khắc đẹp trên đường đi. Để có sức cho những chuyến đi ấy, mình duy trì thói quen tập gym đều đặn.",
-        about_p3: "Mình là một “con sen” chính hiệu, mê mèo vô cùng, và luôn trân trọng thời gian bên gia đình, bạn bè. Mong muốn của mình là góp một phần nhỏ vào việc mang đến những sản phẩm thuốc an toàn, chất lượng cho mọi người.",
-        alt_about: "Bảo Ân giữa rừng xanh",
-        journey_title: "Học vấn & Công việc",
-        edu_label: "Học vấn",
-        edu_degree: "Dược sĩ",
-        edu_school: "Trường Đại học Y Dược – Đại học Quốc gia Hà Nội",
-        edu_desc: "Năm năm trong chiếc áo blouse trắng đã cho mình nền tảng kiến thức dược học vững vàng và thói quen làm việc cẩn thận, chính xác.",
-        cap_graduation: "Lễ tốt nghiệp",
-        cap_labcoat: "Áo blouse trắng ở trường",
-        work_label: "Công việc",
-        work_title: "Đảm bảo chất lượng (QA)",
-        work_period: "Hiện tại",
-        work_desc: "Hiện mình đang làm QA tại Tasco Pharma, nơi sự cẩn trọng và tuân thủ quy trình góp phần tạo nên những sản phẩm thuốc an toàn, hiệu quả – đúng với định hướng mình theo đuổi từ khi còn trên giảng đường.",
-        cap_contest: "Cùng thầy cô và các bạn sinh viên trong hội diễn văn nghệ ở trường",
-        cap_elevator: "Một ngày đi làm",
-        cap_colleague: "Cùng đồng nghiệp",
-        hobbies_title: "Sở thích",
-        h_chess: "Cờ vua",
-        h_chess_d: "Thi đấu tại Giải cờ vua VCC mở rộng 2026 và giành 4 điểm.",
-        alt_chess_game: "Thi đấu tại Giải cờ vua VCC mở rộng 2026",
-        alt_chess_results: "Bảng kết quả Giải cờ vua VCC mở rộng 2026 – 4 điểm",
-        h_travel: "Du lịch",
-        h_travel_d: "Lội rừng, tìm thác và khám phá những cung đường mới.",
-        alt_waterfall: "Bên dòng thác",
-        alt_forest: "Lội rừng",
-        h_cat: "Mèo",
-        h_cat_d: "Mèo mướp hay mèo trắng, mình đều mê.",
-        alt_cat_tabby: "Bé mèo mướp",
-        alt_cat_white: "Bé mèo trắng",
-        alt_cat_white2: "Bé mèo trắng nằm ngủ",
-        h_sea: "Biển",
-        h_sea_d: "Nắng, gió, sóng xanh và những chiếc thuyền đánh cá.",
-        alt_sea_me: "Bảo Ân trên bãi biển",
-        alt_sea_boat: "Thuyền đánh cá bên bờ biển",
-        h_mountain: "Núi",
-        h_mountain_d: "Leo núi ngắm hoa và săn mây cùng bạn bè.",
-        alt_mountain_flowers: "Đồi hoa trên núi",
-        alt_friends_mountain: "Leo núi cùng bạn bè",
-        h_gym: "Tập gym",
-        h_gym_d: "Giữ sức khỏe và sự kỷ luật mỗi ngày.",
-        alt_gym: "Tập gym",
-        family_title: "Gia đình & Bạn bè",
-        cap_sister: "Cùng em gái",
-        cap_huy: "Cùng Huy",
-        cap_cooking: "Nấu bánh chưng ngày Tết cùng anh em họ",
-        cap_friends_mountain: "Leo núi cùng bạn bè",
-        contact_title: "Liên hệ",
-        contact_desc: "Rất vui được kết nối với bạn! Đừng ngại gửi cho mình một lời chào nhé.",
-        footer: "Làm bằng cả trái tim 🧡",
-        lb_label: "Xem ảnh",
-        lb_close: "Đóng",
-        lb_prev: "Ảnh trước",
-        lb_next: "Ảnh sau"
-      },
-      en: {
-        page_title: "Đào Ngọc Bảo Ân – About Me",
-        nav_about: "About",
-        nav_journey: "Education & Work",
-        nav_hobbies: "Interests",
-        nav_family: "Family & Friends",
-        nav_contact: "Contact",
-        hello: "Hi there, I'm",
-        tagline: "A young pharmacist working in Quality Assurance (QA) at Tasco Pharma – passionate about precision, mountains, the sea and chess.",
-        badge_work: "🏢 QA at Tasco Pharma",
-        badge_job: "💊 Pharmacist",
-        badge_home: "📍 Cau Giay, Hanoi",
-        badge_from: "🏡 From Tuyen Quang City",
-        alt_avatar: "Profile photo of Bao An",
-        about_title: "About Me",
-        about_p1: "I'm Bao An, a young pharmacist who graduated from VNU University of Medicine and Pharmacy, Vietnam National University, Hanoi, and I currently work in Quality Assurance (QA) at Tasco Pharma. I value precision and attention to detail – qualities that both QA work and the chessboard demand. I still enter tournaments from time to time, most recently the VCC Open Chess Tournament 2026.",
-        about_p2: "In my free time, I grab my backpack to hike up mountains for the flowers, trek through forests in search of waterfalls, or head to the beach for some sea breeze – always making sure to capture the beautiful moments along the way. To keep up with all these adventures, I train at the gym regularly.",
-        about_p3: "I'm a true cat person, and I treasure every moment spent with my family and friends. My goal is to contribute, in my own way, to bringing safe, high-quality medicines to people.",
-        alt_about: "Bao An in a lush green forest",
-        journey_title: "Education & Work",
-        edu_label: "Education",
-        edu_degree: "Pharmacist",
-        edu_school: "VNU University of Medicine and Pharmacy – Vietnam National University, Hanoi",
-        edu_desc: "Five years in a white lab coat gave me a solid foundation in pharmaceutical sciences and a habit of working carefully and precisely.",
-        cap_graduation: "Graduation day",
-        cap_labcoat: "In my lab coat at university",
-        work_label: "Work",
-        work_title: "Quality Assurance (QA)",
-        work_period: "Present",
-        work_desc: "I currently work in QA at Tasco Pharma, where diligence and strict adherence to procedures help deliver safe, effective medicines – the very path I set out on back in university.",
-        cap_contest: "With lecturers and fellow students at a university arts performance",
-        cap_elevator: "A day at work",
-        cap_colleague: "With a colleague",
-        hobbies_title: "Interests",
-        h_chess: "Chess",
-        h_chess_d: "Competed in the VCC Open Chess Tournament 2026, scoring 4 points.",
-        alt_chess_game: "Playing at the VCC Open Chess Tournament 2026",
-        alt_chess_results: "VCC Open Chess Tournament 2026 results – 4 points",
-        h_travel: "Travel",
-        h_travel_d: "Trekking through forests, chasing waterfalls and discovering new trails.",
-        alt_waterfall: "By a waterfall",
-        alt_forest: "Trekking in the forest",
-        h_cat: "Cats",
-        h_cat_d: "Tabby or white, I adore them all.",
-        alt_cat_tabby: "A tabby kitten",
-        alt_cat_white: "A white cat",
-        alt_cat_white2: "A white cat napping",
-        h_sea: "The Sea",
-        h_sea_d: "Sunshine, sea breeze, blue waves and fishing boats.",
-        alt_sea_me: "Bao An on the beach",
-        alt_sea_boat: "A fishing boat on the shore",
-        h_mountain: "Mountains",
-        h_mountain_d: "Hiking to see the flowers and chase the clouds with friends.",
-        alt_mountain_flowers: "A hillside of flowers in the mountains",
-        alt_friends_mountain: "Hiking with friends",
-        h_gym: "Gym",
-        h_gym_d: "Staying healthy and disciplined every day.",
-        alt_gym: "Working out at the gym",
-        family_title: "Family & Friends",
-        cap_sister: "With my younger sister",
-        cap_huy: "With Huy",
-        cap_cooking: "Boiling bánh chưng for Tết with my cousins",
-        cap_friends_mountain: "Hiking with friends",
-        contact_title: "Get in Touch",
-        contact_desc: "I'd love to connect! Feel free to drop me a line anytime.",
-        footer: "Made with love 🧡",
-        lb_label: "Photo viewer",
-        lb_close: "Close",
-        lb_prev: "Previous photo",
-        lb_next: "Next photo"
-      }
-    };
-
-    const buttons = document.querySelectorAll(".lang-switch button");
-
-    function applyLanguage(lang) {
-      const dict = translations[lang] || translations.vi;
-      document.querySelectorAll("[data-i18n]").forEach(el => {
-        const key = el.getAttribute("data-i18n");
-        if (dict[key] !== undefined) el.textContent = dict[key];
-      });
-      document.querySelectorAll("[data-i18n-alt]").forEach(el => {
-        const key = el.getAttribute("data-i18n-alt");
-        if (dict[key] !== undefined) el.alt = dict[key];
-      });
-      document.querySelectorAll("[data-i18n-aria]").forEach(el => {
-        const key = el.getAttribute("data-i18n-aria");
-        if (dict[key] !== undefined) el.setAttribute("aria-label", dict[key]);
-      });
-      document.documentElement.lang = lang;
-      document.title = dict.page_title;
-      buttons.forEach(btn => {
-        const active = btn.dataset.lang === lang;
-        btn.classList.toggle("active", active);
-        btn.setAttribute("aria-pressed", active);
-      });
-      if (lightbox.classList.contains("open")) showImage(current);
-      try { localStorage.setItem("lang", lang); } catch (e) {}
-    }
-
-    function switchLanguage(lang) {
-      if (document.documentElement.lang === lang) return;
-      document.body.classList.add("switching");
-      setTimeout(() => {
-        applyLanguage(lang);
-        document.body.classList.remove("switching");
-      }, 200);
-    }
-
-    buttons.forEach(btn => btn.addEventListener("click", () => switchLanguage(btn.dataset.lang)));
-
     // ---------- Lightbox ----------
     const lightbox = document.getElementById("lightbox");
     const lbImg = document.getElementById("lbImg");
@@ -1049,11 +833,6 @@
         focusables[(next + focusables.length) % focusables.length].focus();
       }
     });
-
-    // Default: Vietnamese, unless the visitor chose English before
-    let saved = "vi";
-    try { saved = localStorage.getItem("lang") || "vi"; } catch (e) {}
-    applyLanguage(saved);
 
     // Footer year
     document.getElementById("year").textContent = new Date().getFullYear();
