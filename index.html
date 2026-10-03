@@ -504,6 +504,51 @@
     @media (max-width: 600px) { .heart-btn { right: 12px; bottom: 12px; padding: 9px 14px 9px 12px; } .heart-label { display: none; } }
     @media (prefers-reduced-motion: reduce) { .heart-btn, .heart-btn.pop svg { transition: none; animation: none; } }
 
+    /* ---------- Nudges to click the heart ---------- */
+    .heart-btn.beat svg { animation: heartbeat 1.6s ease-in-out infinite; }
+    .heart-btn.beat::after {
+      content: ""; position: absolute; inset: -2px; border-radius: inherit;
+      border: 2px solid #e0526b; pointer-events: none;
+      animation: ring 1.6s ease-out infinite;
+    }
+    @keyframes heartbeat { 0%, 40%, 100% { transform: scale(1); } 15% { transform: scale(1.25); } 28% { transform: scale(1.1); } }
+    @keyframes ring { 0% { transform: scale(1); opacity: .7; } 100% { transform: scale(1.35); opacity: 0; } }
+    .heart-btn.nudge { animation: nudge .8s ease; }
+    @keyframes nudge { 0%, 100% { transform: rotate(0); } 20% { transform: rotate(-10deg) scale(1.1); } 40% { transform: rotate(9deg) scale(1.1); } 60% { transform: rotate(-6deg); } 80% { transform: rotate(4deg); } }
+    .heart-tip {
+      position: fixed; right: 18px; bottom: 80px; z-index: 31;
+      width: max-content; max-width: min(260px, calc(100vw - 32px));
+      background: #fff; color: var(--text); border: 2px solid #e0526b; border-radius: 16px;
+      padding: 12px 34px 12px 14px; font-size: .92rem; line-height: 1.45;
+      box-shadow: 0 10px 28px rgba(194, 51, 77, .22);
+      opacity: 0; visibility: hidden; transform: translateY(10px) scale(.95); transform-origin: bottom right;
+      transition: opacity .3s, transform .3s, visibility .3s;
+    }
+    .heart-tip.show { opacity: 1; visibility: visible; transform: none; transition: opacity .3s, transform .3s, visibility 0s; }
+    .heart-tip::after {
+      content: ""; position: absolute; right: 34px; bottom: -9px; width: 14px; height: 14px;
+      background: #fff; border-right: 2px solid #e0526b; border-bottom: 2px solid #e0526b; transform: rotate(45deg);
+    }
+    .heart-tip-text { all: unset; cursor: pointer; display: block; }
+    .heart-tip-text strong { color: #c2334d; }
+    .heart-tip-close {
+      position: absolute; top: 6px; right: 6px; width: 24px; height: 24px; border: none; border-radius: 50%;
+      background: transparent; color: var(--muted); font-size: 1.1rem; line-height: 1; cursor: pointer;
+    }
+    .heart-tip-close:hover, .heart-tip-close:focus-visible { background: var(--accent-soft); outline: none; }
+    .heart-tip .point { display: inline-block; margin-left: 4px; animation: point 1s ease-in-out infinite; }
+    @keyframes point { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(4px); } }
+    .ps-note { margin-top: 22px !important; margin-bottom: 0 !important; font-size: .95rem; }
+    .ps-link {
+      border: none; background: none; padding: 0; font: inherit; font-weight: 600;
+      color: #c2334d; text-decoration: underline dotted; text-underline-offset: 3px; cursor: pointer;
+    }
+    @media (max-width: 600px) { .heart-tip { right: 12px; bottom: 68px; } .heart-tip::after { right: 18px; } }
+    @media (prefers-reduced-motion: reduce) {
+      .heart-btn.beat svg, .heart-btn.beat::after, .heart-btn.nudge, .heart-tip .point { animation: none; }
+      .heart-tip { transition: none; }
+    }
+
     /* ---------- Heart surprise ---------- */
     .burst {
       position: fixed; z-index: 120; pointer-events: none;
@@ -888,6 +933,7 @@
               Facebook
             </a>
           </div>
+          <p class="ps-note">P.S. There's a little surprise hiding behind the <button type="button" class="ps-link" id="psHeart">❤️ button</button> in the corner. Go on, I prescribe it 😉</p>
         </div>
       </div>
     </section>
@@ -897,6 +943,12 @@
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-10-9.3C.4 8.4 2.3 4.5 6 4.5c2.2 0 3.5 1.2 4.3 2.4h3.4c.8-1.2 2.1-2.4 4.3-2.4 3.7 0 5.6 3.9 4 7.2C19.5 16.4 12 21 12 21z" transform="translate(0 -1)"/></svg>
     <span id="heartCount">0</span><span class="heart-label" id="heartLabel">Support me</span>
   </button>
+  <div class="heart-tip" id="heartTip" role="status">
+    <button type="button" class="heart-tip-text" id="heartTipText">
+      <strong>Psst…</strong> tap the heart for a little surprise from the pharmacist 💊<span class="point" aria-hidden="true">👇</span>
+    </button>
+    <button type="button" class="heart-tip-close" id="heartTipClose" aria-label="Hide tip">&times;</button>
+  </div>
 
   <!-- Heart surprise: a (very unofficial) prescription -->
   <div class="rx-overlay" id="rxOverlay" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="rxTitle">
@@ -1083,6 +1135,7 @@
 
       function render() {
         btn.classList.toggle("liked", liked);
+        btn.classList.toggle("beat", !liked);
         labelEl.textContent = liked ? "Thank you!" : "Support me";
         btn.setAttribute("aria-label", liked ? count + " people support Bao An. Thank you!" : "Send Bao An some love (" + count + " so far)");
         animateCount();
@@ -1215,7 +1268,50 @@
         }
       });
 
+      // ---------- Nudge visitors towards the heart ----------
+      const tip = document.getElementById("heartTip");
+      const TIP_KEY = "baoan-heart-tip-closed";
+      let tipClosed = false;
+      try { tipClosed = sessionStorage.getItem(TIP_KEY) === "1"; } catch (e) {}
+
+      function showTip() {
+        if (liked || tipClosed || overlay.classList.contains("open")) return;
+        tip.classList.add("show");
+      }
+      function hideTip() { tip.classList.remove("show"); }
+      function nudge() {
+        btn.classList.remove("nudge");
+        void btn.offsetWidth; // restart the animation
+        btn.classList.add("nudge");
+      }
+
+      // Show the tip once the visitor has read a bit, or after a while
+      const tipTimer = setTimeout(showTip, 12000);
+      function onScrollTip() {
+        const max = document.documentElement.scrollHeight - innerHeight;
+        if (max > 0 && scrollY / max > 0.35) {
+          showTip();
+          removeEventListener("scroll", onScrollTip);
+        }
+      }
+      addEventListener("scroll", onScrollTip, { passive: true });
+
+      document.getElementById("heartTipText").addEventListener("click", () => btn.click());
+      document.getElementById("heartTipClose").addEventListener("click", () => {
+        tipClosed = true;
+        try { sessionStorage.setItem(TIP_KEY, "1"); } catch (e) {}
+        hideTip();
+      });
+      document.getElementById("psHeart").addEventListener("click", () => {
+        if (liked) { btn.click(); return; }
+        tipClosed = false;
+        showTip();
+        nudge();
+      });
+
       btn.addEventListener("click", function () {
+        clearTimeout(tipTimer);
+        hideTip();
         // Already supported: replay the surprise without counting again
         if (liked) { surprise(); return; }
         liked = true; count += 1;
