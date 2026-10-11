@@ -212,6 +212,17 @@
     }
     .about-text p { font-size: 1.05rem; }
     .about-text p + p { margin-top: 14px; }
+    .facts {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;
+      margin-top: 20px; list-style: none;
+    }
+    .fact {
+      background: var(--bg-soft); border: 1px solid var(--border); border-radius: 14px;
+      padding: 10px 8px; text-align: center; line-height: 1.3;
+    }
+    .fact-icon { font-size: 1.3rem; display: block; }
+    .fact-value { display: block; font-weight: 700; font-size: 1.15rem; color: var(--accent-dark); margin-top: 2px; }
+    .fact-label { display: block; font-size: .78rem; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
     .about-photo { height: 380px; }
     .about-photo .zoomable { object-position: center 35%; }
 
@@ -668,6 +679,11 @@
             <p>I'm Bao An, a young pharmacist who graduated from VNU University of Medicine and Pharmacy, Vietnam National University, Hanoi, and I currently work in Quality Assurance (QA) at Tasco Pharma. I value precision and attention to detail – qualities that both QA work and the chessboard demand. I still enter tournaments from time to time, most recently the VCC Open Chess Tournament 2026.</p>
             <p>In my free time, I grab my backpack to hike up mountains for the flowers, trek through forests in search of waterfalls, or head to the beach for some sea breeze – always making sure to capture the beautiful moments along the way. To keep up with all these adventures, I train at the gym regularly.</p>
             <p>I'm a true cat person, and I treasure every moment spent with my family and friends. My goal is to contribute, in my own way, to bringing safe, high-quality medicines to people.</p>
+            <ul class="facts" aria-label="Quick facts">
+              <li class="fact"><span class="fact-icon" aria-hidden="true">🎂</span><span class="fact-value">2003</span><span class="fact-label">Born</span></li>
+              <li class="fact"><span class="fact-icon" aria-hidden="true">📏</span><span class="fact-value">1.81 m</span><span class="fact-label">Height</span></li>
+              <li class="fact"><span class="fact-icon" aria-hidden="true">⚖️</span><span class="fact-value">71 kg</span><span class="fact-label">Weight</span></li>
+            </ul>
           </div>
           <div class="about-photo photo-box">
             <img class="zoomable" src="images/travel-forest.jpg" loading="lazy" width="1050" height="1400"
