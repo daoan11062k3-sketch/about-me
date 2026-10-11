@@ -339,6 +339,10 @@
     }
     .family .photo-box { height: 290px; }
     .family .wide { grid-column: span 2; }
+    /* Featured photo: 2 columns x 2 rows, image fills the space left by the caption */
+    .family .big { grid-column: span 2; grid-row: span 2; display: flex; flex-direction: column; }
+    .family .big .photo-box { position: relative; flex: 1; height: auto; min-height: 290px; }
+    .family .big .zoomable { position: absolute; inset: 0; }
     .family figcaption {
       text-align: center;
       font-size: .92rem;
@@ -465,6 +469,8 @@
       .family { grid-template-columns: repeat(2, 1fr); }
       .family .photo-box { height: 300px; }
       .family .wide .photo-box { height: 280px; }
+      .family .big { grid-row: auto; }
+      .family .big .photo-box { min-height: 340px; }
     }
 
     /* ---------- Mobile ---------- */
@@ -486,6 +492,7 @@
       .family figure { padding: 8px 8px 10px; }
       .family .photo-box { height: 220px; }
       .family .wide .photo-box { height: 230px; }
+      .family .big .photo-box { min-height: 270px; }
       .family figcaption { font-size: .85rem; }
       .contact-links { flex-direction: column; align-items: stretch; }
       .btn { justify-content: center; }
@@ -879,20 +886,20 @@
       <div class="container">
         <h2 class="section-title reveal">Family &amp; Friends</h2>
         <div class="family reveal">
-          <figure class="wide">
+          <figure class="big">
+            <div class="photo-box"><img class="zoomable" src="images/grad-friends-carry.jpg" loading="lazy" width="1400" height="933"
+                 alt="A friend carrying me on graduation day" style="object-position: center 35%"></div>
+            <figcaption>Graduated – and literally swept off my feet 😆</figcaption>
+          </figure>
+          <figure>
             <div class="photo-box"><img class="zoomable" src="images/grad-family-all.jpg" loading="lazy" width="933" height="1400"
-                 alt="With my whole family at my graduation ceremony, 28 August 2026" style="object-position: center 72%"></div>
+                 alt="With my whole family at my graduation ceremony, 28 August 2026" style="object-position: center 78%"></div>
             <figcaption>The whole family came to cheer me on 🎓</figcaption>
           </figure>
           <figure>
             <div class="photo-box"><img class="zoomable" src="images/grad-family.jpg" loading="lazy" width="933" height="1400"
                  alt="With my family at my graduation ceremony, 28 August 2026" style="object-position: center 70%"></div>
             <figcaption>With my family on graduation day</figcaption>
-          </figure>
-          <figure class="wide">
-            <div class="photo-box"><img class="zoomable" src="images/grad-friends-flex.jpg" loading="lazy" width="1400" height="1050"
-                 alt="Flexing with my friends on graduation day" style="object-position: center 40%"></div>
-            <figcaption>Graduation-day gains with my friends 💪</figcaption>
           </figure>
           <figure>
             <div class="photo-box"><img class="zoomable" src="images/sister.jpg" loading="lazy" width="1050" height="1400"
@@ -905,29 +912,29 @@
             <figcaption>With Huybuoi – best friends since 5th grade</figcaption>
           </figure>
           <figure class="wide">
+            <div class="photo-box"><img class="zoomable" src="images/grad-friends-flex.jpg" loading="lazy" width="1400" height="1050"
+                 alt="Flexing with my friends on graduation day" style="object-position: center 40%"></div>
+            <figcaption>Graduation-day gains with my friends 💪</figcaption>
+          </figure>
+          <figure class="wide">
             <div class="photo-box"><img class="zoomable" src="images/grad-friends-selfie.jpg" loading="lazy" width="1400" height="933"
                  alt="A graduation-day selfie with friends" style="object-position: center 60%"></div>
             <figcaption>A graduation-day selfie with friends</figcaption>
           </figure>
           <figure class="wide">
-            <div class="photo-box"><img class="zoomable" src="images/grad-friends-carry.jpg" loading="lazy" width="1400" height="933"
-                 alt="A friend carrying me on graduation day" style="object-position: center 35%"></div>
-            <figcaption>Graduated – and literally swept off my feet 😆</figcaption>
+            <div class="photo-box"><img class="zoomable" src="images/friends-cooking.jpg" loading="lazy" width="1021" height="528"
+                 alt="Boiling bánh chưng for Tết with my cousins"></div>
+            <figcaption>Boiling bánh chưng for Tết with my cousins</figcaption>
           </figure>
           <figure>
             <div class="photo-box"><img class="zoomable" src="images/friends-mountain.jpg" loading="lazy" width="1050" height="1400"
                  alt="Hiking with friends" style="object-position: center 45%"></div>
             <figcaption>Hiking with friends</figcaption>
           </figure>
-          <figure class="wide">
+          <figure>
             <div class="photo-box"><img class="zoomable" src="images/friends-hoang.jpg" loading="lazy" width="1400" height="1050"
-                 alt="With Hoàng at a water puppet show" style="object-position: center 40%"></div>
+                 alt="With Hoàng at a water puppet show" style="object-position: 40% 50%"></div>
             <figcaption>With Hoàng at a water puppet show</figcaption>
-          </figure>
-          <figure class="wide">
-            <div class="photo-box"><img class="zoomable" src="images/friends-cooking.jpg" loading="lazy" width="1021" height="528"
-                 alt="Boiling bánh chưng for Tết with my cousins"></div>
-            <figcaption>Boiling bánh chưng for Tết with my cousins</figcaption>
           </figure>
         </div>
       </div>
