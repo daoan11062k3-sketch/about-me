@@ -320,6 +320,12 @@
     .hobby .emoji { font-size: 2rem; display: block; line-height: 1.2; margin-bottom: 4px; }
     .hobby h3 { font-size: 1.1rem; margin-bottom: 4px; }
     .hobby p { font-size: .9rem; color: var(--muted); line-height: 1.55; }
+    .hobby-link {
+      display: inline-block; margin-top: 10px; padding: 6px 14px; border-radius: 999px;
+      background: var(--accent-soft); color: var(--accent-dark); font-size: .88rem; font-weight: 600;
+      text-decoration: none; transition: background .2s, color .2s;
+    }
+    .hobby-link:hover, .hobby-link:focus-visible { background: var(--accent); color: #fff; }
     .pos-top { object-position: center top; }
 
     /* Family & Friends */
@@ -803,6 +809,7 @@
               <span class="emoji" aria-hidden="true">♟️</span>
               <h3>Chess</h3>
               <p>Competed in the VCC Open Chess Tournament 2026, scoring 4 points.</p>
+              <a class="hobby-link" href="https://www.chess.com/member/bigboi2k3" target="_blank" rel="noopener noreferrer">Challenge me on Chess.com ♟️ →</a>
             </div>
           </div>
 
@@ -954,6 +961,10 @@
             <a class="btn btn-outline" href="https://www.facebook.com/bao.an.ao.2024/" target="_blank" rel="noopener noreferrer">
               <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12z"/></svg>
               Facebook
+            </a>
+            <a class="btn btn-outline" href="https://www.chess.com/member/bigboi2k3" target="_blank" rel="noopener noreferrer">
+              <span aria-hidden="true">♟️</span>
+              Chess.com
             </a>
           </div>
           <p class="ps-note">P.S. There's a little surprise hiding behind the <button type="button" class="ps-link" id="psHeart">❤️ button</button> in the corner. Go on, I prescribe it 😉</p>
